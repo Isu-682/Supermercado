@@ -79,9 +79,14 @@ namespace Supermercado
 
         private void mostrarDatos()
         {
-            DataSet ds = datos.getAllData("SELECT id as \"Id\", nombre as \"Nombre\", apellido as \"Apellido\"," +
-                "tipo_doc as \"Tipo de Documento\", nro_doc as \"Numero de Documento\", nro_tel_princ as \"Numero Telefonico Principal\", " +
-                "nro_tel_sec as \"Numero Telefonico Secundario\", email \"Email\" FROM \"clientes\" order by id");
+            DataSet ds = datos.getAllData("SELECT id as \"Id\", " +
+                "nombre as \"Nombre\", " +
+                "apellido as \"Apellido\"," +
+                "tipo_doc as \"Tipo de Documento\", " +
+                "nro_doc as \"Numero de Documento\", " +
+                "nro_tel_princ as \"Numero Telefonico Principal\", " +
+                "nro_tel_sec as \"Numero Telefonico Secundario\", " +
+                "email \"Email\" FROM \"clientes\" order by id");
             if (ds != null)
             {
                 dgvClientes.DataSource = ds.Tables[0];
