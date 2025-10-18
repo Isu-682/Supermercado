@@ -43,6 +43,7 @@
             this.txtbNro_tel_princ = new System.Windows.Forms.TextBox();
             this.txtbNro_tel_sec = new System.Windows.Forms.TextBox();
             this.txtbEmail = new System.Windows.Forms.TextBox();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,9 +113,9 @@
             // dgvClientes
             // 
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(311, 12);
+            this.dgvClientes.Location = new System.Drawing.Point(311, 32);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(477, 368);
+            this.dgvClientes.Size = new System.Drawing.Size(477, 324);
             this.dgvClientes.TabIndex = 8;
             // 
             // txtbNombre
@@ -166,11 +167,22 @@
             this.txtbEmail.Size = new System.Drawing.Size(241, 20);
             this.txtbEmail.TabIndex = 15;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(713, 362);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 16;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 392);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.txtbEmail);
             this.Controls.Add(this.txtbNro_tel_sec);
             this.Controls.Add(this.txtbNro_tel_princ);
@@ -188,7 +200,6 @@
             this.Controls.Add(this.label2);
             this.Name = "frmClientes";
             this.Text = "Clientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,5 +222,6 @@
         private System.Windows.Forms.TextBox txtbNro_tel_princ;
         private System.Windows.Forms.TextBox txtbNro_tel_sec;
         private System.Windows.Forms.TextBox txtbEmail;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

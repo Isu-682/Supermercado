@@ -47,6 +47,7 @@
             this.txtbStock = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -205,11 +206,22 @@
             this.dgvProductos.TabIndex = 60;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(713, 538);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 61;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 573);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.txtbStock);
             this.Controls.Add(this.label9);
@@ -260,5 +272,6 @@
         private System.Windows.Forms.TextBox txtbStock;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

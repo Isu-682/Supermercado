@@ -41,6 +41,7 @@
             this.txtbEmail = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,14 +146,25 @@
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProveedores.Location = new System.Drawing.Point(301, 12);
             this.dgvProveedores.Name = "dgvProveedores";
-            this.dgvProveedores.Size = new System.Drawing.Size(477, 368);
+            this.dgvProveedores.Size = new System.Drawing.Size(477, 342);
             this.dgvProveedores.TabIndex = 47;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(713, 366);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 48;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 401);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvProveedores);
             this.Controls.Add(this.txtbEmail);
             this.Controls.Add(this.label8);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.TextBox txtbEmail;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvProveedores;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

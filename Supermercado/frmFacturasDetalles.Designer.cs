@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvFacturas_detalles = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas_detalles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,14 +164,25 @@
             this.dgvFacturas_detalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturas_detalles.Location = new System.Drawing.Point(285, 40);
             this.dgvFacturas_detalles.Name = "dgvFacturas_detalles";
-            this.dgvFacturas_detalles.Size = new System.Drawing.Size(490, 275);
+            this.dgvFacturas_detalles.Size = new System.Drawing.Size(490, 263);
             this.dgvFacturas_detalles.TabIndex = 49;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(713, 315);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 50;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmFacturasDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 350);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvFacturas_detalles);
             this.Controls.Add(this.txtbDescr_pago);
             this.Controls.Add(this.txtbMedio_de_pago);
@@ -211,5 +223,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvFacturas_detalles;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

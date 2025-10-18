@@ -31,6 +31,7 @@
             this.txtbCantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvVentas_productos = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas_productos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,11 +59,22 @@
             this.dgvVentas_productos.Size = new System.Drawing.Size(702, 248);
             this.dgvVentas_productos.TabIndex = 14;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(713, 322);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 17;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmVentasProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 357);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvVentas_productos);
             this.Controls.Add(this.txtbCantidad);
             this.Controls.Add(this.label2);
@@ -79,5 +91,6 @@
         private System.Windows.Forms.TextBox txtbCantidad;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvVentas_productos;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }
