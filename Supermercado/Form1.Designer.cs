@@ -28,113 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.btnComprasCli = new System.Windows.Forms.Button();
+            this.btnEmpleados = new System.Windows.Forms.Button();
+            this.btnFacturas = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
+            this.btnVentasPro = new System.Windows.Forms.Button();
+            this.btnFacturasDet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnClientes
             // 
-            this.button1.Location = new System.Drawing.Point(25, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(290, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "CLIENTES";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnClientes.Location = new System.Drawing.Point(25, 13);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(290, 23);
+            this.btnClientes.TabIndex = 0;
+            this.btnClientes.Text = "CLIENTES";
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
-            // button2
+            // btnComprasCli
             // 
-            this.button2.Location = new System.Drawing.Point(25, 63);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(290, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "COMPRAS CLIENTES";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnComprasCli.Location = new System.Drawing.Point(25, 63);
+            this.btnComprasCli.Name = "btnComprasCli";
+            this.btnComprasCli.Size = new System.Drawing.Size(290, 23);
+            this.btnComprasCli.TabIndex = 1;
+            this.btnComprasCli.Text = "COMPRAS CLIENTES";
+            this.btnComprasCli.UseVisualStyleBackColor = true;
+            this.btnComprasCli.Click += new System.EventHandler(this.btnComprasCli_Click);
             // 
-            // button3
+            // btnEmpleados
             // 
-            this.button3.Location = new System.Drawing.Point(25, 113);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(290, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "EMPLEADOS";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnEmpleados.Location = new System.Drawing.Point(25, 113);
+            this.btnEmpleados.Name = "btnEmpleados";
+            this.btnEmpleados.Size = new System.Drawing.Size(290, 23);
+            this.btnEmpleados.TabIndex = 2;
+            this.btnEmpleados.Text = "EMPLEADOS";
+            this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.btnEmpleados_Click);
             // 
-            // button4
+            // btnFacturas
             // 
-            this.button4.Location = new System.Drawing.Point(25, 163);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(290, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "FACTURAS";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnFacturas.Location = new System.Drawing.Point(25, 163);
+            this.btnFacturas.Name = "btnFacturas";
+            this.btnFacturas.Size = new System.Drawing.Size(290, 23);
+            this.btnFacturas.TabIndex = 3;
+            this.btnFacturas.Text = "FACTURAS";
+            this.btnFacturas.UseVisualStyleBackColor = true;
+            this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
-            // button5
+            // btnProductos
             // 
-            this.button5.Location = new System.Drawing.Point(25, 263);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(290, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "PRODUCTOS";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnProductos.Location = new System.Drawing.Point(25, 263);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(290, 23);
+            this.btnProductos.TabIndex = 4;
+            this.btnProductos.Text = "PRODUCTOS";
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
-            // button6
+            // btnProveedores
             // 
-            this.button6.Location = new System.Drawing.Point(25, 313);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(290, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "PROVEEDORES";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnProveedores.Location = new System.Drawing.Point(25, 313);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Size = new System.Drawing.Size(290, 23);
+            this.btnProveedores.TabIndex = 5;
+            this.btnProveedores.Text = "PROVEEDORES";
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
-            // button7
+            // btnVentas
             // 
-            this.button7.Location = new System.Drawing.Point(25, 363);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(290, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "VENTAS";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnVentas.Location = new System.Drawing.Point(25, 363);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(290, 23);
+            this.btnVentas.TabIndex = 6;
+            this.btnVentas.Text = "VENTAS";
+            this.btnVentas.UseVisualStyleBackColor = true;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             // 
-            // button8
+            // btnVentasPro
             // 
-            this.button8.Location = new System.Drawing.Point(25, 413);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(290, 23);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "VENTAS PRODUCTOS";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnVentasPro.Location = new System.Drawing.Point(25, 413);
+            this.btnVentasPro.Name = "btnVentasPro";
+            this.btnVentasPro.Size = new System.Drawing.Size(290, 23);
+            this.btnVentasPro.TabIndex = 7;
+            this.btnVentasPro.Text = "VENTAS PRODUCTOS";
+            this.btnVentasPro.UseVisualStyleBackColor = true;
+            this.btnVentasPro.Click += new System.EventHandler(this.btnVentasPro_Click);
             // 
-            // button9
+            // btnFacturasDet
             // 
-            this.button9.Location = new System.Drawing.Point(25, 213);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(290, 23);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "FACTURAS DETALLES";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnFacturasDet.Location = new System.Drawing.Point(25, 213);
+            this.btnFacturasDet.Name = "btnFacturasDet";
+            this.btnFacturasDet.Size = new System.Drawing.Size(290, 23);
+            this.btnFacturasDet.TabIndex = 8;
+            this.btnFacturasDet.Text = "FACTURAS DETALLES";
+            this.btnFacturasDet.UseVisualStyleBackColor = true;
+            this.btnFacturasDet.Click += new System.EventHandler(this.btnFacturasDet_Click);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 449);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnFacturasDet);
+            this.Controls.Add(this.btnVentasPro);
+            this.Controls.Add(this.btnVentas);
+            this.Controls.Add(this.btnProveedores);
+            this.Controls.Add(this.btnProductos);
+            this.Controls.Add(this.btnFacturas);
+            this.Controls.Add(this.btnEmpleados);
+            this.Controls.Add(this.btnComprasCli);
+            this.Controls.Add(this.btnClientes);
             this.Name = "frmMenu";
             this.Text = "Menu";
             this.ResumeLayout(false);
@@ -143,15 +151,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button btnComprasCli;
+        private System.Windows.Forms.Button btnEmpleados;
+        private System.Windows.Forms.Button btnFacturas;
+        private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnProveedores;
+        private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Button btnVentasPro;
+        private System.Windows.Forms.Button btnFacturasDet;
     }
 }
 
