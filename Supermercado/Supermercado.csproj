@@ -95,96 +95,97 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Data\Datos.cs" />
+    <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmClientes.cs">
+    <Compile Include="View\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmClientes.Designer.cs">
+    <Compile Include="View\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmComprasClientes.cs">
+    <Compile Include="View\frmComprasClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmComprasClientes.Designer.cs">
+    <Compile Include="View\frmComprasClientes.Designer.cs">
       <DependentUpon>frmComprasClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEmpleados.cs">
+    <Compile Include="View\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmpleados.Designer.cs">
+    <Compile Include="View\frmEmpleados.Designer.cs">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFacturas.cs">
+    <Compile Include="View\frmFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFacturas.Designer.cs">
+    <Compile Include="View\frmFacturas.Designer.cs">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFacturasDetalles.cs">
+    <Compile Include="View\frmFacturasDetalles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFacturasDetalles.Designer.cs">
+    <Compile Include="View\frmFacturasDetalles.Designer.cs">
       <DependentUpon>frmFacturasDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProductos.cs">
+    <Compile Include="View\frmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProductos.Designer.cs">
+    <Compile Include="View\frmProductos.Designer.cs">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProveedores.cs">
+    <Compile Include="View\frmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProveedores.Designer.cs">
+    <Compile Include="View\frmProveedores.Designer.cs">
       <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVentas.cs">
+    <Compile Include="View\frmVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVentas.Designer.cs">
+    <Compile Include="View\frmVentas.Designer.cs">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVentasProductos.cs">
+    <Compile Include="View\frmVentasProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVentasProductos.Designer.cs">
+    <Compile Include="View\frmVentasProductos.Designer.cs">
       <DependentUpon>frmVentasProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmClientes.resx">
+    <EmbeddedResource Include="View\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmComprasClientes.resx">
+    <EmbeddedResource Include="View\frmComprasClientes.resx">
       <DependentUpon>frmComprasClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmpleados.resx">
+    <EmbeddedResource Include="View\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacturas.resx">
+    <EmbeddedResource Include="View\frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacturasDetalles.resx">
+    <EmbeddedResource Include="View\frmFacturasDetalles.resx">
       <DependentUpon>frmFacturasDetalles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProductos.resx">
+    <EmbeddedResource Include="View\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProveedores.resx">
+    <EmbeddedResource Include="View\frmProveedores.resx">
       <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVentas.resx">
+    <EmbeddedResource Include="View\frmVentas.resx">
       <DependentUpon>frmVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVentasProductos.resx">
+    <EmbeddedResource Include="View\frmVentasProductos.resx">
       <DependentUpon>frmVentasProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

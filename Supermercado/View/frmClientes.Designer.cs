@@ -40,17 +40,18 @@
             this.txtbApellido = new System.Windows.Forms.TextBox();
             this.txtbTipo_doc = new System.Windows.Forms.TextBox();
             this.txtbNro_doc = new System.Windows.Forms.TextBox();
-            this.txtbNro_tel_princ = new System.Windows.Forms.TextBox();
-            this.txtbNro_tel_sec = new System.Windows.Forms.TextBox();
             this.txtbEmail = new System.Windows.Forms.TextBox();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.mtxtbNro_tel_princ = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtbNro_tel_sec = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 47);
+            this.label2.Location = new System.Drawing.Point(23, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +60,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 92);
+            this.label3.Location = new System.Drawing.Point(23, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -68,7 +69,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 137);
+            this.label4.Location = new System.Drawing.Point(23, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 2;
@@ -77,7 +78,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 182);
+            this.label5.Location = new System.Drawing.Point(23, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 13);
             this.label5.TabIndex = 5;
@@ -86,7 +87,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 227);
+            this.label6.Location = new System.Drawing.Point(23, 193);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 13);
             this.label6.TabIndex = 4;
@@ -95,7 +96,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(24, 272);
+            this.label7.Location = new System.Drawing.Point(23, 238);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(154, 13);
             this.label7.TabIndex = 7;
@@ -104,7 +105,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 317);
+            this.label8.Location = new System.Drawing.Point(23, 283);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 6;
@@ -120,49 +121,35 @@
             // 
             // txtbNombre
             // 
-            this.txtbNombre.Location = new System.Drawing.Point(27, 66);
+            this.txtbNombre.Location = new System.Drawing.Point(26, 32);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(241, 20);
             this.txtbNombre.TabIndex = 9;
             // 
             // txtbApellido
             // 
-            this.txtbApellido.Location = new System.Drawing.Point(27, 111);
+            this.txtbApellido.Location = new System.Drawing.Point(26, 77);
             this.txtbApellido.Name = "txtbApellido";
             this.txtbApellido.Size = new System.Drawing.Size(241, 20);
             this.txtbApellido.TabIndex = 10;
             // 
             // txtbTipo_doc
             // 
-            this.txtbTipo_doc.Location = new System.Drawing.Point(27, 156);
+            this.txtbTipo_doc.Location = new System.Drawing.Point(26, 122);
             this.txtbTipo_doc.Name = "txtbTipo_doc";
             this.txtbTipo_doc.Size = new System.Drawing.Size(241, 20);
             this.txtbTipo_doc.TabIndex = 11;
             // 
             // txtbNro_doc
             // 
-            this.txtbNro_doc.Location = new System.Drawing.Point(27, 201);
+            this.txtbNro_doc.Location = new System.Drawing.Point(26, 167);
             this.txtbNro_doc.Name = "txtbNro_doc";
             this.txtbNro_doc.Size = new System.Drawing.Size(241, 20);
             this.txtbNro_doc.TabIndex = 12;
             // 
-            // txtbNro_tel_princ
-            // 
-            this.txtbNro_tel_princ.Location = new System.Drawing.Point(27, 246);
-            this.txtbNro_tel_princ.Name = "txtbNro_tel_princ";
-            this.txtbNro_tel_princ.Size = new System.Drawing.Size(241, 20);
-            this.txtbNro_tel_princ.TabIndex = 13;
-            // 
-            // txtbNro_tel_sec
-            // 
-            this.txtbNro_tel_sec.Location = new System.Drawing.Point(27, 291);
-            this.txtbNro_tel_sec.Name = "txtbNro_tel_sec";
-            this.txtbNro_tel_sec.Size = new System.Drawing.Size(241, 20);
-            this.txtbNro_tel_sec.TabIndex = 14;
-            // 
             // txtbEmail
             // 
-            this.txtbEmail.Location = new System.Drawing.Point(27, 336);
+            this.txtbEmail.Location = new System.Drawing.Point(26, 302);
             this.txtbEmail.Name = "txtbEmail";
             this.txtbEmail.Size = new System.Drawing.Size(241, 20);
             this.txtbEmail.TabIndex = 15;
@@ -177,15 +164,42 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(102, 343);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 17;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // mtxtbNro_tel_princ
+            // 
+            this.mtxtbNro_tel_princ.Location = new System.Drawing.Point(26, 215);
+            this.mtxtbNro_tel_princ.Mask = "000-000-0000";
+            this.mtxtbNro_tel_princ.Name = "mtxtbNro_tel_princ";
+            this.mtxtbNro_tel_princ.Size = new System.Drawing.Size(151, 20);
+            this.mtxtbNro_tel_princ.TabIndex = 18;
+            // 
+            // mtxtbNro_tel_sec
+            // 
+            this.mtxtbNro_tel_sec.Location = new System.Drawing.Point(24, 260);
+            this.mtxtbNro_tel_sec.Mask = "000-000-0000";
+            this.mtxtbNro_tel_sec.Name = "mtxtbNro_tel_sec";
+            this.mtxtbNro_tel_sec.Size = new System.Drawing.Size(153, 20);
+            this.mtxtbNro_tel_sec.TabIndex = 19;
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 392);
+            this.Controls.Add(this.mtxtbNro_tel_sec);
+            this.Controls.Add(this.mtxtbNro_tel_princ);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.txtbEmail);
-            this.Controls.Add(this.txtbNro_tel_sec);
-            this.Controls.Add(this.txtbNro_tel_princ);
             this.Controls.Add(this.txtbNro_doc);
             this.Controls.Add(this.txtbTipo_doc);
             this.Controls.Add(this.txtbApellido);
@@ -200,6 +214,8 @@
             this.Controls.Add(this.label2);
             this.Name = "frmClientes";
             this.Text = "Clientes";
+            this.Activated += new System.EventHandler(this.frmClientes_Activated);
+            this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,9 +235,10 @@
         private System.Windows.Forms.TextBox txtbApellido;
         private System.Windows.Forms.TextBox txtbTipo_doc;
         private System.Windows.Forms.TextBox txtbNro_doc;
-        private System.Windows.Forms.TextBox txtbNro_tel_princ;
-        private System.Windows.Forms.TextBox txtbNro_tel_sec;
         private System.Windows.Forms.TextBox txtbEmail;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_princ;
+        private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_sec;
     }
 }
