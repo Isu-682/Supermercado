@@ -15,6 +15,23 @@ namespace Supermercado
             InitializeComponent();
         }
 
+        public frmClientes(int id)
+        {
+            InitializeComponent();
+
+            Datos data = new Datos();
+            DataSet ds = data.getAllData("SELECT * FROM \"clientes\" WHERE id = " + id);
+            txtbNombre.Text = ds.Tables[0].Rows[0]["nombre"].ToString();
+            txtbApellido.Text = ds.Tables[0].Rows[0]["apellido"].ToString();
+            txtbTipo_doc.Text = ds.Tables[0].Rows[0]["tipo_doc"].ToString();
+            txtbNro_doc.Text = ds.Tables[0].Rows[0]["nro_doc"].ToString();
+            mtxtbNro_tel_princ.Text = ds.Tables[0].Rows[0]["nro_tel_princ"].ToString();
+            mtxtbNro_tel_sec.Text = ds.Tables[0].Rows[0]["nro_tel_sec"].ToString();
+            txtbEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
+            this.id = id;
+            btnAgregar.Text = "Actualizar";
+        }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             frmMenu menu = new frmMenu();
@@ -44,7 +61,7 @@ namespace Supermercado
                 if (resultado)
                 {
                     MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    limpiar();
                 }
                 else
                 {
@@ -106,5 +123,63 @@ namespace Supermercado
         {
             mostrarDatos();
         }
+
+        private void limpiar()
+        {
+            txtbNombre.Text = "";
+            txtbApellido.Text = "";
+            txtbTipo_doc.Text = "";
+            txtbNro_doc.Text = "";
+            mtxtbNro_tel_princ.Text = "";
+            mtxtbNro_tel_sec.Text = "";
+            txtbEmail.Text = "";
+        }
+
+        private void toolStripEditar_Click(object sender, EventArgs e)
+        {
+            int selectedId = Convert.ToInt32(dgvClientes[0, dgvClientes.CurrentCell.RowIndex].Value);
+            cargarDatos(selectedId);
+        }
+
+        private void toolStripEliminar_Click(object sender, EventArgs e)
+        {
+            string r = dgvClientes[0, dgvClientes.CurrentCell.RowIndex].Value.ToString();
+            DialogResult dr = MessageBox.Show("¿Está seguro de eliminar el registro seleccionado?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                bool resultado = datos.ExecuteQuery("DELETE FROM public.\"clientes\" WHERE id = " + r);
+                if (resultado)
+                {
+                    MessageBox.Show("Registro eliminado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mostrarDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cargarDatos(int clienteId)
+        {
+            DataSet ds = datos.getAllData("SELECT * FROM \"clientes\" WHERE id = " + clienteId);
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                txtbNombre.Text = ds.Tables[0].Rows[0]["nombre"].ToString();
+                txtbApellido.Text = ds.Tables[0].Rows[0]["apellido"].ToString();
+                txtbTipo_doc.Text = ds.Tables[0].Rows[0]["tipo_doc"].ToString();
+                txtbNro_doc.Text = ds.Tables[0].Rows[0]["nro_doc"].ToString();
+                mtxtbNro_tel_princ.Text = ds.Tables[0].Rows[0]["nro_tel_princ"].ToString();
+                mtxtbNro_tel_sec.Text = ds.Tables[0].Rows[0]["nro_tel_sec"].ToString();
+                txtbEmail.Text = ds.Tables[0].Rows[0]["email"].ToString();
+
+                id = clienteId;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo cargar el cliente.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }

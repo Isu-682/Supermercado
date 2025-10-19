@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,13 +46,17 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.mtxtbNro_tel_princ = new System.Windows.Forms.MaskedTextBox();
             this.mtxtbNro_tel_sec = new System.Windows.Forms.MaskedTextBox();
+            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 13);
+            this.label2.Location = new System.Drawing.Point(24, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -60,7 +65,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 58);
+            this.label3.Location = new System.Drawing.Point(24, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -69,7 +74,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 103);
+            this.label4.Location = new System.Drawing.Point(24, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 13);
             this.label4.TabIndex = 2;
@@ -78,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 148);
+            this.label5.Location = new System.Drawing.Point(24, 182);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 13);
             this.label5.TabIndex = 5;
@@ -87,7 +92,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 193);
+            this.label6.Location = new System.Drawing.Point(24, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 13);
             this.label6.TabIndex = 4;
@@ -96,7 +101,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 238);
+            this.label7.Location = new System.Drawing.Point(24, 272);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(154, 13);
             this.label7.TabIndex = 7;
@@ -105,7 +110,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 283);
+            this.label8.Location = new System.Drawing.Point(24, 317);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 6;
@@ -113,7 +118,9 @@
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.ContextMenuStrip = this.cmsMenu;
             this.dgvClientes.Location = new System.Drawing.Point(311, 32);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(477, 324);
@@ -121,35 +128,35 @@
             // 
             // txtbNombre
             // 
-            this.txtbNombre.Location = new System.Drawing.Point(26, 32);
+            this.txtbNombre.Location = new System.Drawing.Point(27, 66);
             this.txtbNombre.Name = "txtbNombre";
             this.txtbNombre.Size = new System.Drawing.Size(241, 20);
             this.txtbNombre.TabIndex = 9;
             // 
             // txtbApellido
             // 
-            this.txtbApellido.Location = new System.Drawing.Point(26, 77);
+            this.txtbApellido.Location = new System.Drawing.Point(27, 111);
             this.txtbApellido.Name = "txtbApellido";
             this.txtbApellido.Size = new System.Drawing.Size(241, 20);
             this.txtbApellido.TabIndex = 10;
             // 
             // txtbTipo_doc
             // 
-            this.txtbTipo_doc.Location = new System.Drawing.Point(26, 122);
+            this.txtbTipo_doc.Location = new System.Drawing.Point(27, 156);
             this.txtbTipo_doc.Name = "txtbTipo_doc";
             this.txtbTipo_doc.Size = new System.Drawing.Size(241, 20);
             this.txtbTipo_doc.TabIndex = 11;
             // 
             // txtbNro_doc
             // 
-            this.txtbNro_doc.Location = new System.Drawing.Point(26, 167);
+            this.txtbNro_doc.Location = new System.Drawing.Point(27, 201);
             this.txtbNro_doc.Name = "txtbNro_doc";
             this.txtbNro_doc.Size = new System.Drawing.Size(241, 20);
             this.txtbNro_doc.TabIndex = 12;
             // 
             // txtbEmail
             // 
-            this.txtbEmail.Location = new System.Drawing.Point(26, 302);
+            this.txtbEmail.Location = new System.Drawing.Point(27, 336);
             this.txtbEmail.Name = "txtbEmail";
             this.txtbEmail.Size = new System.Drawing.Size(241, 20);
             this.txtbEmail.TabIndex = 15;
@@ -166,7 +173,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(102, 343);
+            this.btnAgregar.Location = new System.Drawing.Point(103, 377);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 17;
@@ -176,7 +183,7 @@
             // 
             // mtxtbNro_tel_princ
             // 
-            this.mtxtbNro_tel_princ.Location = new System.Drawing.Point(26, 215);
+            this.mtxtbNro_tel_princ.Location = new System.Drawing.Point(27, 249);
             this.mtxtbNro_tel_princ.Mask = "000-000-0000";
             this.mtxtbNro_tel_princ.Name = "mtxtbNro_tel_princ";
             this.mtxtbNro_tel_princ.Size = new System.Drawing.Size(151, 20);
@@ -184,17 +191,39 @@
             // 
             // mtxtbNro_tel_sec
             // 
-            this.mtxtbNro_tel_sec.Location = new System.Drawing.Point(24, 260);
+            this.mtxtbNro_tel_sec.Location = new System.Drawing.Point(25, 294);
             this.mtxtbNro_tel_sec.Mask = "000-000-0000";
             this.mtxtbNro_tel_sec.Name = "mtxtbNro_tel_sec";
             this.mtxtbNro_tel_sec.Size = new System.Drawing.Size(153, 20);
             this.mtxtbNro_tel_sec.TabIndex = 19;
             // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripEditar,
+            this.toolStripEliminar});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(118, 48);
+            // 
+            // toolStripEditar
+            // 
+            this.toolStripEditar.Name = "toolStripEditar";
+            this.toolStripEditar.Size = new System.Drawing.Size(180, 22);
+            this.toolStripEditar.Text = "Editar";
+            this.toolStripEditar.Click += new System.EventHandler(this.toolStripEditar_Click);
+            // 
+            // toolStripEliminar
+            // 
+            this.toolStripEliminar.Name = "toolStripEliminar";
+            this.toolStripEliminar.Size = new System.Drawing.Size(180, 22);
+            this.toolStripEliminar.Text = "Eliminar";
+            this.toolStripEliminar.Click += new System.EventHandler(this.toolStripEliminar_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 392);
+            this.ClientSize = new System.Drawing.Size(800, 413);
             this.Controls.Add(this.mtxtbNro_tel_sec);
             this.Controls.Add(this.mtxtbNro_tel_princ);
             this.Controls.Add(this.btnAgregar);
@@ -217,6 +246,7 @@
             this.Activated += new System.EventHandler(this.frmClientes_Activated);
             this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            this.cmsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +270,8 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_princ;
         private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_sec;
+        private System.Windows.Forms.ContextMenuStrip cmsMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEditar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEliminar;
     }
 }
