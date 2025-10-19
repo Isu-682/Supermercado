@@ -103,7 +103,7 @@ namespace Supermercado
                 "nro_doc as \"Numero de Documento\", " +
                 "nro_tel_princ as \"Numero Telefonico Principal\", " +
                 "nro_tel_sec as \"Numero Telefonico Secundario\", " +
-                "email \"Email\" FROM \"clientes\" order by id");
+                "email \"Email\" FROM \"empleados\" order by id");
             if (ds != null)
             {
                 dgvClientes.DataSource = ds.Tables[0];
@@ -137,8 +137,8 @@ namespace Supermercado
 
         private void toolStripEditar_Click(object sender, EventArgs e)
         {
-            int selectedId = Convert.ToInt32(dgvClientes[0, dgvClientes.CurrentCell.RowIndex].Value);
-            cargarDatos(selectedId);
+            int Id = Convert.ToInt32(dgvClientes[0, dgvClientes.CurrentCell.RowIndex].Value);
+            cargarDatos(Id);
         }
 
         private void toolStripEliminar_Click(object sender, EventArgs e)

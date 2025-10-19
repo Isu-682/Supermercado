@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtbEmail = new System.Windows.Forms.TextBox();
-            this.txtbNro_tel_sec = new System.Windows.Forms.TextBox();
-            this.txtbNro_tel_princ = new System.Windows.Forms.TextBox();
             this.txtbNro_doc = new System.Windows.Forms.TextBox();
             this.txtbTipo_doc = new System.Windows.Forms.TextBox();
             this.txtbApellido = new System.Windows.Forms.TextBox();
@@ -60,7 +59,14 @@
             this.label15 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editarToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminaToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.mtxtbNro_tel_sec = new System.Windows.Forms.MaskedTextBox();
+            this.mtxtbNro_tel_princ = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
+            this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbEmail
@@ -69,20 +75,6 @@
             this.txtbEmail.Name = "txtbEmail";
             this.txtbEmail.Size = new System.Drawing.Size(241, 20);
             this.txtbEmail.TabIndex = 29;
-            // 
-            // txtbNro_tel_sec
-            // 
-            this.txtbNro_tel_sec.Location = new System.Drawing.Point(536, 121);
-            this.txtbNro_tel_sec.Name = "txtbNro_tel_sec";
-            this.txtbNro_tel_sec.Size = new System.Drawing.Size(241, 20);
-            this.txtbNro_tel_sec.TabIndex = 28;
-            // 
-            // txtbNro_tel_princ
-            // 
-            this.txtbNro_tel_princ.Location = new System.Drawing.Point(536, 71);
-            this.txtbNro_tel_princ.Name = "txtbNro_tel_princ";
-            this.txtbNro_tel_princ.Size = new System.Drawing.Size(241, 20);
-            this.txtbNro_tel_princ.TabIndex = 27;
             // 
             // txtbNro_doc
             // 
@@ -104,7 +96,6 @@
             this.txtbApellido.Name = "txtbApellido";
             this.txtbApellido.Size = new System.Drawing.Size(241, 20);
             this.txtbApellido.TabIndex = 24;
-            this.txtbApellido.TextChanged += new System.EventHandler(this.txtbApellido_TextChanged);
             // 
             // txtbNombre
             // 
@@ -306,15 +297,17 @@
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpleados.Location = new System.Drawing.Point(12, 264);
+            this.dgvEmpleados.ContextMenuStrip = this.cmsMenu;
+            this.dgvEmpleados.Location = new System.Drawing.Point(12, 284);
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(765, 238);
             this.dgvEmpleados.TabIndex = 47;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Location = new System.Drawing.Point(702, 505);
+            this.btnCerrar.Location = new System.Drawing.Point(702, 528);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(75, 23);
             this.btnCerrar.TabIndex = 48;
@@ -322,11 +315,62 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStrip,
+            this.eliminaToolStrip});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(114, 48);
+            // 
+            // editarToolStrip
+            // 
+            this.editarToolStrip.Name = "editarToolStrip";
+            this.editarToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStrip.Text = "Editar";
+            this.editarToolStrip.Click += new System.EventHandler(this.editarToolStrip_Click);
+            // 
+            // eliminaToolStrip
+            // 
+            this.eliminaToolStrip.Name = "eliminaToolStrip";
+            this.eliminaToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.eliminaToolStrip.Text = "Elimina";
+            this.eliminaToolStrip.Click += new System.EventHandler(this.eliminaToolStrip_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(357, 255);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 50;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // mtxtbNro_tel_sec
+            // 
+            this.mtxtbNro_tel_sec.Location = new System.Drawing.Point(536, 121);
+            this.mtxtbNro_tel_sec.Mask = "000-000-0000";
+            this.mtxtbNro_tel_sec.Name = "mtxtbNro_tel_sec";
+            this.mtxtbNro_tel_sec.Size = new System.Drawing.Size(153, 20);
+            this.mtxtbNro_tel_sec.TabIndex = 53;
+            // 
+            // mtxtbNro_tel_princ
+            // 
+            this.mtxtbNro_tel_princ.Location = new System.Drawing.Point(536, 68);
+            this.mtxtbNro_tel_princ.Mask = "000-000-0000";
+            this.mtxtbNro_tel_princ.Name = "mtxtbNro_tel_princ";
+            this.mtxtbNro_tel_princ.Size = new System.Drawing.Size(151, 20);
+            this.mtxtbNro_tel_princ.TabIndex = 52;
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 540);
+            this.ClientSize = new System.Drawing.Size(789, 563);
+            this.Controls.Add(this.mtxtbNro_tel_sec);
+            this.Controls.Add(this.mtxtbNro_tel_princ);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvEmpleados);
             this.Controls.Add(this.txtbCargo);
@@ -346,8 +390,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtbEmail);
-            this.Controls.Add(this.txtbNro_tel_sec);
-            this.Controls.Add(this.txtbNro_tel_princ);
             this.Controls.Add(this.txtbNro_doc);
             this.Controls.Add(this.txtbTipo_doc);
             this.Controls.Add(this.txtbApellido);
@@ -361,8 +403,10 @@
             this.Controls.Add(this.label2);
             this.Name = "frmEmpleados";
             this.Text = "Empleados";
+            this.Activated += new System.EventHandler(this.frmEmpleados_Activated);
             this.Load += new System.EventHandler(this.frmEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
+            this.cmsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,8 +415,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtbEmail;
-        private System.Windows.Forms.TextBox txtbNro_tel_sec;
-        private System.Windows.Forms.TextBox txtbNro_tel_princ;
         private System.Windows.Forms.TextBox txtbNro_doc;
         private System.Windows.Forms.TextBox txtbTipo_doc;
         private System.Windows.Forms.TextBox txtbApellido;
@@ -402,5 +444,11 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ContextMenuStrip cmsMenu;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem eliminaToolStrip;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_sec;
+        private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_princ;
     }
 }
