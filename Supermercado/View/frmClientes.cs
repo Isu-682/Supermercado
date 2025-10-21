@@ -62,6 +62,7 @@ namespace Supermercado
                 {
                     MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
+
                 }
                 else
                 {
@@ -86,6 +87,7 @@ namespace Supermercado
                 if (resultado)
                 {
                     MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                 {
@@ -103,7 +105,7 @@ namespace Supermercado
                 "nro_doc as \"Numero de Documento\", " +
                 "nro_tel_princ as \"Numero Telefonico Principal\", " +
                 "nro_tel_sec as \"Numero Telefonico Secundario\", " +
-                "email \"Email\" FROM \"empleados\" order by id");
+                "email \"Email\" FROM \"clientes\" order by id");
             if (ds != null)
             {
                 dgvClientes.DataSource = ds.Tables[0];

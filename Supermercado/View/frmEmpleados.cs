@@ -38,21 +38,21 @@ namespace Supermercado
                     "(nombre, apellido, edad, fecha_nac, tipo_doc, nro_doc, " +
                     "cuil, direccion, nro_tel_princ, nro_tel_sec, email, cargo," +
                     "antiguedad, fecha_ingreso, salario_anual) VALUES (" +
-                    "'" + txtbNombre.Text + "'," +
-                    "'" + txtbApellido.Text + "'," +
-                    "'" + txtbEdad.Text + "'," +
-                    "'" + txtbFecha_nac.Text + "'," +
-                    "'" + txtbTipo_doc.Text + "'," +
-                    "'" + txtbNro_doc.Text + "'," +
-                    "'" + txtbCuil.Text + "'," +
-                    "'" + txtbDireccion.Text + "'," +
-                    "'" + mtxtbNro_tel_princ.Text + "'," +
-                    "'" + mtxtbNro_tel_sec.Text + "'," +
-                    "'" + txtbEmail.Text + "'," +
-                    "'" + txtbCargo.Text + "'," +
-                    "'" + txtbAntiguedad.Text + "'," +
-                    "'" + txtbFecha_ingreso.Text + "'," +
-                    "'" + txtbSalario_anual.Text + "')";
+                    "'" + txtbNombre.Text + "', " +
+                    "'" + txtbApellido.Text + "', " +
+                    txtbEdad.Text + ", " +
+                    "'" + txtbFecha_nac.Text + "', " +
+                    "'" + txtbTipo_doc.Text + "', " +
+                    "'" + txtbNro_doc.Text + "', " +
+                    "'" + txtbCuil.Text + "', " +
+                    "'" + txtbDireccion.Text + "', " +
+                    "'" + mtxtbNro_tel_princ.Text + "', " +
+                    "'" + mtxtbNro_tel_sec.Text + "', " +
+                    "'" + txtbEmail.Text + "', " +
+                    "'" + txtbCargo.Text + "', " +
+                    "'" + txtbAntiguedad.Text + "', " +
+                    "'" + txtbFecha_ingreso.Text + "', " +
+                    txtbSalario_anual.Text + ")";
 
 
                 resultado = datos.ExecuteQuery(queryUpdate);
@@ -72,7 +72,7 @@ namespace Supermercado
                 string queryup = "UPDATE public.\"empleados\" SET " +
                     "nombre = '" + txtbNombre.Text + "', " +
                     "apellido = '" + txtbApellido.Text + "', " +
-                    "edad = '" + txtbEdad.Text + "', " +
+                    "edad = '" + txtbEdad.Text + ", " +
                     "fecha_nac = '" + txtbFecha_nac.Text + "', " +
                     "tipo_doc = '" + txtbTipo_doc.Text + "', " +
                     "nro_doc = '" + txtbNro_doc.Text + "', " +
@@ -86,6 +86,7 @@ namespace Supermercado
                     "fecha_ingreso = '" + txtbFecha_ingreso.Text + "', " +
                     "salario_anual = '" + txtbSalario_anual.Text + "' " +
                     "WHERE id = " + id;
+
 
                 resultado = datos.ExecuteQuery(queryup);
 

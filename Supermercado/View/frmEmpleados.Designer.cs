@@ -58,10 +58,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editarToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminaToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.mtxtbNro_tel_sec = new System.Windows.Forms.MaskedTextBox();
             this.mtxtbNro_tel_princ = new System.Windows.Forms.MaskedTextBox();
@@ -297,23 +297,16 @@
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.AllowUserToAddRows = false;
+            this.dgvEmpleados.AllowUserToDeleteRows = false;
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.ContextMenuStrip = this.cmsMenu;
             this.dgvEmpleados.Location = new System.Drawing.Point(12, 284);
             this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.ReadOnly = true;
             this.dgvEmpleados.Size = new System.Drawing.Size(765, 238);
             this.dgvEmpleados.TabIndex = 47;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(702, 528);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCerrar.TabIndex = 48;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // cmsMenu
             // 
@@ -326,16 +319,26 @@
             // editarToolStrip
             // 
             this.editarToolStrip.Name = "editarToolStrip";
-            this.editarToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStrip.Size = new System.Drawing.Size(113, 22);
             this.editarToolStrip.Text = "Editar";
             this.editarToolStrip.Click += new System.EventHandler(this.editarToolStrip_Click);
             // 
             // eliminaToolStrip
             // 
             this.eliminaToolStrip.Name = "eliminaToolStrip";
-            this.eliminaToolStrip.Size = new System.Drawing.Size(180, 22);
+            this.eliminaToolStrip.Size = new System.Drawing.Size(113, 22);
             this.eliminaToolStrip.Text = "Elimina";
             this.eliminaToolStrip.Click += new System.EventHandler(this.eliminaToolStrip_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(702, 528);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 48;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnAgregar
             // 
