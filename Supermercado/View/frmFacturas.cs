@@ -56,7 +56,7 @@ namespace Supermercado
             }
             else
             {
-                string queryup = "UPDATE public.\"clientes\" SET " +
+                string queryup = "UPDATE public.\"facturas\" SET " +
                     "numero = '" + txtbNumero.Text + "', " +
                     "codigo = '" + txtbCodigo.Text + "', " +
                     "fecha = '" + txtbFecha.Text + "', " +

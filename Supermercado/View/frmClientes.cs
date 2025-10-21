@@ -44,37 +44,6 @@ namespace Supermercado
             bool resultado;
             Datos datos = new Datos();
 
-            if (string.IsNullOrWhiteSpace(txtbNombre.Text))
-            {
-                MessageBox.Show("Nombre inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtbApellido.Text))
-            {
-                MessageBox.Show("Apellido inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtbTipo_doc.Text))
-            {
-                MessageBox.Show("Tipo de documento inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtbNro_doc.Text))
-            {
-                MessageBox.Show("Número de documento inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(mtxtbNro_tel_princ.Text))
-            {
-                MessageBox.Show("Teléfono principal inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-
             if (id == -1)
             {
                 string queryUpdate = "INSERT INTO public.\"clientes\" " +

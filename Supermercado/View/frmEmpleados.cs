@@ -32,31 +32,6 @@ namespace Supermercado
             bool resultado;
             Datos datos = new Datos();
 
-            // Validaciones
-            if (!int.TryParse(txtbEdad.Text, out int edad))
-            {
-                MessageBox.Show("Edad inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!decimal.TryParse(txtbSalario_anual.Text, out decimal salario))
-            {
-                MessageBox.Show("Salario inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!DateTime.TryParse(txtbFecha_nac.Text, out DateTime fechaNac))
-            {
-                MessageBox.Show("Fecha de nacimiento inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!DateTime.TryParse(txtbFecha_ingreso.Text, out DateTime fechaIngreso))
-            {
-                MessageBox.Show("Fecha de ingreso inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             if (id == -1)
             {
                 string queryInsert = "INSERT INTO public.\"empleados\" " +
@@ -65,8 +40,8 @@ namespace Supermercado
                     "antiguedad, fecha_ingreso, salario_anual) VALUES (" +
                     "'" + txtbNombre.Text + "', " +
                     "'" + txtbApellido.Text + "', " +
-                    edad + ", " +
-                    "'" + fechaNac.ToString("yyyy-MM-dd") + "', " +
+                    txtbEdad.Text + ", " +
+                    "'" + txtbFecha_nac.Text + "', " +
                     "'" + txtbTipo_doc.Text + "', " +
                     "'" + txtbNro_doc.Text + "', " +
                     "'" + txtbCuil.Text + "', " +
@@ -76,8 +51,8 @@ namespace Supermercado
                     "'" + txtbEmail.Text + "', " +
                     "'" + txtbCargo.Text + "', " +
                     "'" + txtbAntiguedad.Text + "', " +
-                    "'" + fechaIngreso.ToString("yyyy-MM-dd") + "', " +
-                    salario.ToString(System.Globalization.CultureInfo.InvariantCulture) + ")";
+                    "'" + txtbFecha_ingreso.Text + "', " +
+                    txtbSalario_anual.Text + ")";
 
                 resultado = datos.ExecuteQuery(queryInsert);
 
@@ -98,8 +73,8 @@ namespace Supermercado
                 string queryUpdate = "UPDATE public.\"empleados\" SET " +
                     "nombre = '" + txtbNombre.Text + "', " +
                     "apellido = '" + txtbApellido.Text + "', " +
-                    "edad = " + edad + ", " +
-                    "fecha_nac = '" + fechaNac.ToString("yyyy-MM-dd") + "', " +
+                    "edad = " + txtbEdad.Text + ", " +
+                    "fecha_nac = '" + txtbFecha_nac.Text + "', " +
                     "tipo_doc = '" + txtbTipo_doc.Text + "', " +
                     "nro_doc = '" + txtbNro_doc.Text + "', " +
                     "cuil = '" + txtbCuil.Text + "', " +
@@ -109,8 +84,8 @@ namespace Supermercado
                     "email = '" + txtbEmail.Text + "', " +
                     "cargo = '" + txtbCargo.Text + "', " +
                     "antiguedad = '" + txtbAntiguedad.Text + "', " +
-                    "fecha_ingreso = '" + fechaIngreso.ToString("yyyy-MM-dd") + "', " +
-                    "salario_anual = " + salario.ToString(System.Globalization.CultureInfo.InvariantCulture) + " " +
+                    "fecha_ingreso = '" + txtbFecha_ingreso.Text + "', " +
+                    "salario_anual = " + txtbSalario_anual.Text + " " +
                     "WHERE id = " + id;
 
                 resultado = datos.ExecuteQuery(queryUpdate);
@@ -187,19 +162,20 @@ namespace Supermercado
 
         private void eliminaToolStrip_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(dgvEmpleados[0, dgvEmpleados.CurrentCell.RowIndex].Value);
-            bool resultado;
-            Datos datos = new Datos();
-            string queryDelete = "DELETE FROM public.\"empleados\" WHERE id = " + Id;
-            resultado = datos.ExecuteQuery(queryDelete);
-            if (resultado)
+            string r = dgvEmpleados[0, dgvEmpleados.CurrentCell.RowIndex].Value.ToString();
+            DialogResult dr = MessageBox.Show("¿Está seguro de eliminar el registro seleccionado?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
             {
-                MessageBox.Show("Registro eliminado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mostrarDatos();
-            }
-            else
-            {
-                MessageBox.Show("Error al eliminar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bool resultado = datos.ExecuteQuery("DELETE FROM public.\"empleados\" WHERE id = " + r);
+                if (resultado)
+                {
+                    MessageBox.Show("Registro eliminado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mostrarDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
