@@ -44,6 +44,37 @@ namespace Supermercado
             bool resultado;
             Datos datos = new Datos();
 
+            if (string.IsNullOrWhiteSpace(txtbNombre.Text))
+            {
+                MessageBox.Show("Nombre inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtbApellido.Text))
+            {
+                MessageBox.Show("Apellido inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtbTipo_doc.Text))
+            {
+                MessageBox.Show("Tipo de documento inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtbNro_doc.Text))
+            {
+                MessageBox.Show("Número de documento inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(mtxtbNro_tel_princ.Text))
+            {
+                MessageBox.Show("Teléfono principal inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             if (id == -1)
             {
                 string queryUpdate = "INSERT INTO public.\"clientes\" " +
@@ -60,13 +91,13 @@ namespace Supermercado
                 resultado = datos.ExecuteQuery(queryUpdate);
                 if (resultado)
                 {
-                    MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro agregado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
 
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al agregar los datos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return;
             }
@@ -86,8 +117,8 @@ namespace Supermercado
 
                 if (resultado)
                 {
-                    MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Actualizado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
                 }
                 else
                 {

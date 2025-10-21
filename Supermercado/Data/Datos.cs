@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Supermercado.Data
 {
@@ -61,7 +62,8 @@ namespace Supermercado.Data
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+                MessageBox.Show("Error SQL: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return false;
             }
         }

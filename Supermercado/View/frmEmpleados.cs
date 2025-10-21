@@ -32,16 +32,41 @@ namespace Supermercado
             bool resultado;
             Datos datos = new Datos();
 
+            // Validaciones
+            if (!int.TryParse(txtbEdad.Text, out int edad))
+            {
+                MessageBox.Show("Edad inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txtbSalario_anual.Text, out decimal salario))
+            {
+                MessageBox.Show("Salario inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!DateTime.TryParse(txtbFecha_nac.Text, out DateTime fechaNac))
+            {
+                MessageBox.Show("Fecha de nacimiento inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!DateTime.TryParse(txtbFecha_ingreso.Text, out DateTime fechaIngreso))
+            {
+                MessageBox.Show("Fecha de ingreso inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (id == -1)
             {
-                string queryUpdate = "INSERT INTO public.\"empleados\" " +
+                string queryInsert = "INSERT INTO public.\"empleados\" " +
                     "(nombre, apellido, edad, fecha_nac, tipo_doc, nro_doc, " +
                     "cuil, direccion, nro_tel_princ, nro_tel_sec, email, cargo," +
                     "antiguedad, fecha_ingreso, salario_anual) VALUES (" +
                     "'" + txtbNombre.Text + "', " +
                     "'" + txtbApellido.Text + "', " +
-                    txtbEdad.Text + ", " +
-                    "'" + txtbFecha_nac.Text + "', " +
+                    edad + ", " +
+                    "'" + fechaNac.ToString("yyyy-MM-dd") + "', " +
                     "'" + txtbTipo_doc.Text + "', " +
                     "'" + txtbNro_doc.Text + "', " +
                     "'" + txtbCuil.Text + "', " +
@@ -51,29 +76,30 @@ namespace Supermercado
                     "'" + txtbEmail.Text + "', " +
                     "'" + txtbCargo.Text + "', " +
                     "'" + txtbAntiguedad.Text + "', " +
-                    "'" + txtbFecha_ingreso.Text + "', " +
-                    txtbSalario_anual.Text + ")";
+                    "'" + fechaIngreso.ToString("yyyy-MM-dd") + "', " +
+                    salario.ToString(System.Globalization.CultureInfo.InvariantCulture) + ")";
 
+                resultado = datos.ExecuteQuery(queryInsert);
 
-                resultado = datos.ExecuteQuery(queryUpdate);
                 if (resultado)
                 {
-                    MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro agregado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
+
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al agregar los datos", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return;
             }
             else
             {
-                string queryup = "UPDATE public.\"empleados\" SET " +
+                string queryUpdate = "UPDATE public.\"empleados\" SET " +
                     "nombre = '" + txtbNombre.Text + "', " +
                     "apellido = '" + txtbApellido.Text + "', " +
-                    "edad = '" + txtbEdad.Text + ", " +
-                    "fecha_nac = '" + txtbFecha_nac.Text + "', " +
+                    "edad = " + edad + ", " +
+                    "fecha_nac = '" + fechaNac.ToString("yyyy-MM-dd") + "', " +
                     "tipo_doc = '" + txtbTipo_doc.Text + "', " +
                     "nro_doc = '" + txtbNro_doc.Text + "', " +
                     "cuil = '" + txtbCuil.Text + "', " +
@@ -83,16 +109,16 @@ namespace Supermercado
                     "email = '" + txtbEmail.Text + "', " +
                     "cargo = '" + txtbCargo.Text + "', " +
                     "antiguedad = '" + txtbAntiguedad.Text + "', " +
-                    "fecha_ingreso = '" + txtbFecha_ingreso.Text + "', " +
-                    "salario_anual = '" + txtbSalario_anual.Text + "' " +
+                    "fecha_ingreso = '" + fechaIngreso.ToString("yyyy-MM-dd") + "', " +
+                    "salario_anual = " + salario.ToString(System.Globalization.CultureInfo.InvariantCulture) + " " +
                     "WHERE id = " + id;
 
-
-                resultado = datos.ExecuteQuery(queryup);
+                resultado = datos.ExecuteQuery(queryUpdate);
 
                 if (resultado)
                 {
-                    MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Actualizado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
                 }
                 else
                 {
