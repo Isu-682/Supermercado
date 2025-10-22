@@ -41,7 +41,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtbFecha_nac = new System.Windows.Forms.TextBox();
             this.txtbEdad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.txtbCargo = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtbSalario_anual = new System.Windows.Forms.TextBox();
-            this.txtbFecha_ingreso = new System.Windows.Forms.TextBox();
             this.txtbAntiguedad = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -65,6 +63,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.mtxtbNro_tel_sec = new System.Windows.Forms.MaskedTextBox();
             this.mtxtbNro_tel_princ = new System.Windows.Forms.MaskedTextBox();
+            this.dtpFecha_nac = new System.Windows.Forms.DateTimePicker();
+            this.dtpFecha_ingreso = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
@@ -167,13 +167,6 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Nombre";
             // 
-            // txtbFecha_nac
-            // 
-            this.txtbFecha_nac.Location = new System.Drawing.Point(12, 71);
-            this.txtbFecha_nac.Name = "txtbFecha_nac";
-            this.txtbFecha_nac.Size = new System.Drawing.Size(241, 20);
-            this.txtbFecha_nac.TabIndex = 34;
-            // 
             // txtbEdad
             // 
             this.txtbEdad.Location = new System.Drawing.Point(536, 21);
@@ -186,9 +179,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Fecha de Nacimiento (YY/MM/DD)";
+            this.label1.Text = "Fecha de Nacimiento";
             // 
             // label10
             // 
@@ -253,13 +246,6 @@
             this.txtbSalario_anual.Name = "txtbSalario_anual";
             this.txtbSalario_anual.Size = new System.Drawing.Size(241, 20);
             this.txtbSalario_anual.TabIndex = 44;
-            // 
-            // txtbFecha_ingreso
-            // 
-            this.txtbFecha_ingreso.Location = new System.Drawing.Point(279, 215);
-            this.txtbFecha_ingreso.Name = "txtbFecha_ingreso";
-            this.txtbFecha_ingreso.Size = new System.Drawing.Size(241, 20);
-            this.txtbFecha_ingreso.TabIndex = 43;
             // 
             // txtbAntiguedad
             // 
@@ -366,11 +352,29 @@
             this.mtxtbNro_tel_princ.Size = new System.Drawing.Size(151, 20);
             this.mtxtbNro_tel_princ.TabIndex = 52;
             // 
+            // dtpFecha_nac
+            // 
+            this.dtpFecha_nac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha_nac.Location = new System.Drawing.Point(12, 71);
+            this.dtpFecha_nac.Name = "dtpFecha_nac";
+            this.dtpFecha_nac.Size = new System.Drawing.Size(87, 20);
+            this.dtpFecha_nac.TabIndex = 54;
+            // 
+            // dtpFecha_ingreso
+            // 
+            this.dtpFecha_ingreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha_ingreso.Location = new System.Drawing.Point(279, 215);
+            this.dtpFecha_ingreso.Name = "dtpFecha_ingreso";
+            this.dtpFecha_ingreso.Size = new System.Drawing.Size(87, 20);
+            this.dtpFecha_ingreso.TabIndex = 55;
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 563);
+            this.Controls.Add(this.dtpFecha_ingreso);
+            this.Controls.Add(this.dtpFecha_nac);
             this.Controls.Add(this.mtxtbNro_tel_sec);
             this.Controls.Add(this.mtxtbNro_tel_princ);
             this.Controls.Add(this.btnAgregar);
@@ -379,7 +383,6 @@
             this.Controls.Add(this.txtbCargo);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtbSalario_anual);
-            this.Controls.Add(this.txtbFecha_ingreso);
             this.Controls.Add(this.txtbAntiguedad);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
@@ -388,7 +391,6 @@
             this.Controls.Add(this.txtbCuil);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtbFecha_nac);
             this.Controls.Add(this.txtbEdad);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
@@ -429,7 +431,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtbFecha_nac;
         private System.Windows.Forms.TextBox txtbEdad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
@@ -440,7 +441,6 @@
         private System.Windows.Forms.TextBox txtbCargo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtbSalario_anual;
-        private System.Windows.Forms.TextBox txtbFecha_ingreso;
         private System.Windows.Forms.TextBox txtbAntiguedad;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -453,5 +453,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_sec;
         private System.Windows.Forms.MaskedTextBox mtxtbNro_tel_princ;
+        private System.Windows.Forms.DateTimePicker dtpFecha_nac;
+        private System.Windows.Forms.DateTimePicker dtpFecha_ingreso;
     }
 }

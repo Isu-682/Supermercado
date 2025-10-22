@@ -41,7 +41,7 @@ namespace Supermercado
                     "'" + txtbNombre.Text + "', " +
                     "'" + txtbApellido.Text + "', " +
                     txtbEdad.Text + ", " +
-                    "'" + txtbFecha_nac.Text + "', " +
+                    "'" + dtpFecha_nac.Value.ToString("yyyy-MM-dd") + "', " +
                     "'" + txtbTipo_doc.Text + "', " +
                     "'" + txtbNro_doc.Text + "', " +
                     "'" + txtbCuil.Text + "', " +
@@ -51,7 +51,7 @@ namespace Supermercado
                     "'" + txtbEmail.Text + "', " +
                     "'" + txtbCargo.Text + "', " +
                     "'" + txtbAntiguedad.Text + "', " +
-                    "'" + txtbFecha_ingreso.Text + "', " +
+                    "'" + dtpFecha_ingreso.Value.ToString("yyyy-MM-dd") + "', " +
                     txtbSalario_anual.Text + ")";
 
                 resultado = datos.ExecuteQuery(queryInsert);
@@ -74,7 +74,7 @@ namespace Supermercado
                     "nombre = '" + txtbNombre.Text + "', " +
                     "apellido = '" + txtbApellido.Text + "', " +
                     "edad = " + txtbEdad.Text + ", " +
-                    "fecha_nac = '" + txtbFecha_nac.Text + "', " +
+                    "fecha_nac = '" + dtpFecha_nac.Value.ToString("yyyy-MM-dd") + "', " +
                     "tipo_doc = '" + txtbTipo_doc.Text + "', " +
                     "nro_doc = '" + txtbNro_doc.Text + "', " +
                     "cuil = '" + txtbCuil.Text + "', " +
@@ -84,7 +84,7 @@ namespace Supermercado
                     "email = '" + txtbEmail.Text + "', " +
                     "cargo = '" + txtbCargo.Text + "', " +
                     "antiguedad = '" + txtbAntiguedad.Text + "', " +
-                    "fecha_ingreso = '" + txtbFecha_ingreso.Text + "', " +
+                    "fecha_ingreso = '" + dtpFecha_ingreso.Value.ToString("yyyy-MM-dd") + "', " +
                     "salario_anual = " + txtbSalario_anual.Text + " " +
                     "WHERE id = " + id;
 
@@ -107,7 +107,7 @@ namespace Supermercado
             txtbNombre.Text = "";
             txtbApellido.Text = "";
             txtbEdad.Text = "";
-            txtbFecha_nac.Text = "";
+            dtpFecha_nac.Text = "";
             txtbTipo_doc.Text = "";
             txtbNro_doc.Text = "";
             txtbCuil.Text = "";
@@ -117,7 +117,7 @@ namespace Supermercado
             txtbEmail.Text = "";
             txtbCargo.Text = "";
             txtbAntiguedad.Text = "";
-            txtbFecha_ingreso.Text = "";
+            dtpFecha_ingreso.Text = "";
             txtbSalario_anual.Text = "";
         }
 
@@ -189,7 +189,7 @@ namespace Supermercado
                 txtbNombre.Text = row["nombre"].ToString();
                 txtbApellido.Text = row["apellido"].ToString();
                 txtbEdad.Text = row["edad"].ToString();
-                txtbFecha_nac.Text = row["fecha_nac"].ToString();
+                dtpFecha_nac.Text = row["fecha_nac"].ToString();
                 txtbTipo_doc.Text = row["tipo_doc"].ToString();
                 txtbNro_doc.Text = row["nro_doc"].ToString();
                 txtbCuil.Text = row["cuil"].ToString();
@@ -199,7 +199,7 @@ namespace Supermercado
                 txtbEmail.Text = row["email"].ToString();
                 txtbCargo.Text = row["cargo"].ToString();
                 txtbAntiguedad.Text = row["antiguedad"].ToString();
-                txtbFecha_ingreso.Text = row["fecha_ingreso"].ToString();
+                dtpFecha_ingreso.Text = row["fecha_ingreso"].ToString();
                 txtbSalario_anual.Text = row["salario_anual"].ToString();
             }
             else
