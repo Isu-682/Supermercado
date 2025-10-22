@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtbImporte_total = new System.Windows.Forms.TextBox();
-            this.txtbHora = new System.Windows.Forms.TextBox();
-            this.txtbFecha = new System.Windows.Forms.TextBox();
             this.txtbCodigo = new System.Windows.Forms.TextBox();
             this.txtbNumero = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,11 +38,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dtpHora = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).BeginInit();
             this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
@@ -55,20 +55,6 @@
             this.txtbImporte_total.Name = "txtbImporte_total";
             this.txtbImporte_total.Size = new System.Drawing.Size(241, 20);
             this.txtbImporte_total.TabIndex = 27;
-            // 
-            // txtbHora
-            // 
-            this.txtbHora.Location = new System.Drawing.Point(23, 199);
-            this.txtbHora.Name = "txtbHora";
-            this.txtbHora.Size = new System.Drawing.Size(241, 20);
-            this.txtbHora.TabIndex = 26;
-            // 
-            // txtbFecha
-            // 
-            this.txtbFecha.Location = new System.Drawing.Point(23, 154);
-            this.txtbFecha.Name = "txtbFecha";
-            this.txtbFecha.Size = new System.Drawing.Size(241, 20);
-            this.txtbFecha.TabIndex = 25;
             // 
             // txtbCodigo
             // 
@@ -116,9 +102,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(20, 135);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Fecha (YY/MM/DD)";
+            this.label4.Text = "Fecha ";
             // 
             // label2
             // 
@@ -131,22 +117,15 @@
             // 
             // dgvFacturas
             // 
+            this.dgvFacturas.AllowUserToAddRows = false;
+            this.dgvFacturas.AllowUserToDeleteRows = false;
             this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturas.ContextMenuStrip = this.cmsMenu;
             this.dgvFacturas.Location = new System.Drawing.Point(298, 21);
             this.dgvFacturas.Name = "dgvFacturas";
+            this.dgvFacturas.ReadOnly = true;
             this.dgvFacturas.Size = new System.Drawing.Size(490, 275);
             this.dgvFacturas.TabIndex = 48;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(713, 306);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCerrar.TabIndex = 49;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // cmsMenu
             // 
@@ -159,14 +138,26 @@
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // eToolStripMenuItem
             // 
             this.eToolStripMenuItem.Name = "eToolStripMenuItem";
             this.eToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.eToolStripMenuItem.Text = "Eliminar";
+            this.eToolStripMenuItem.Click += new System.EventHandler(this.eToolStripMenuItem_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(713, 306);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 49;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnAgregar
             // 
@@ -178,17 +169,37 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(23, 151);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(87, 20);
+            this.dtpFecha.TabIndex = 52;
+            // 
+            // dtpHora
+            // 
+            this.dtpHora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHora.Location = new System.Drawing.Point(23, 196);
+            this.dtpHora.Name = "dtpHora";
+            this.dtpHora.ShowUpDown = true;
+            this.dtpHora.Size = new System.Drawing.Size(87, 20);
+            this.dtpHora.TabIndex = 53;
+            // 
             // frmFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 341);
+            this.Controls.Add(this.dtpHora);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvFacturas);
             this.Controls.Add(this.txtbImporte_total);
-            this.Controls.Add(this.txtbHora);
-            this.Controls.Add(this.txtbFecha);
             this.Controls.Add(this.txtbCodigo);
             this.Controls.Add(this.txtbNumero);
             this.Controls.Add(this.label5);
@@ -198,6 +209,7 @@
             this.Controls.Add(this.label2);
             this.Name = "frmFacturas";
             this.Text = "Facturas";
+            this.Activated += new System.EventHandler(this.frmFacturas_Activated);
             this.Load += new System.EventHandler(this.frmFacturas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas)).EndInit();
             this.cmsMenu.ResumeLayout(false);
@@ -208,8 +220,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox txtbImporte_total;
-        private System.Windows.Forms.TextBox txtbHora;
-        private System.Windows.Forms.TextBox txtbFecha;
         private System.Windows.Forms.TextBox txtbCodigo;
         private System.Windows.Forms.TextBox txtbNumero;
         private System.Windows.Forms.Label label5;
@@ -223,5 +233,7 @@
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.DateTimePicker dtpHora;
     }
 }
