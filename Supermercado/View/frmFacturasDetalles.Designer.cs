@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtbIva = new System.Windows.Forms.TextBox();
             this.txtbCosto_asoc = new System.Windows.Forms.TextBox();
             this.txtbDescr_factura = new System.Windows.Forms.TextBox();
@@ -44,7 +45,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dgvFacturas_detalles = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas_detalles)).BeginInit();
+            this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbIva
@@ -162,6 +168,7 @@
             // dgvFacturas_detalles
             // 
             this.dgvFacturas_detalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFacturas_detalles.ContextMenuStrip = this.cmsMenu;
             this.dgvFacturas_detalles.Location = new System.Drawing.Point(285, 40);
             this.dgvFacturas_detalles.Name = "dgvFacturas_detalles";
             this.dgvFacturas_detalles.Size = new System.Drawing.Size(490, 263);
@@ -177,11 +184,44 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(455, 315);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 51;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripEditar,
+            this.toolStripEliminar});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(181, 70);
+            // 
+            // toolStripEditar
+            // 
+            this.toolStripEditar.Name = "toolStripEditar";
+            this.toolStripEditar.Size = new System.Drawing.Size(180, 22);
+            this.toolStripEditar.Text = "Editar";
+            this.toolStripEditar.Click += new System.EventHandler(this.toolStripEditar_Click);
+            // 
+            // toolStripEliminar
+            // 
+            this.toolStripEliminar.Name = "toolStripEliminar";
+            this.toolStripEliminar.Size = new System.Drawing.Size(180, 22);
+            this.toolStripEliminar.Text = "Eliminar";
+            this.toolStripEliminar.Click += new System.EventHandler(this.toolStripEliminar_Click);
+            // 
             // frmFacturasDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 350);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dgvFacturas_detalles);
             this.Controls.Add(this.txtbDescr_pago);
@@ -200,7 +240,10 @@
             this.Controls.Add(this.label2);
             this.Name = "frmFacturasDetalles";
             this.Text = "Facturas Detalles";
+            this.Activated += new System.EventHandler(this.frmFacturasDetalles_Activated);
+            this.Load += new System.EventHandler(this.frmFacturasDetalles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturas_detalles)).EndInit();
+            this.cmsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +267,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvFacturas_detalles;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ContextMenuStrip cmsMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEditar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEliminar;
     }
 }
