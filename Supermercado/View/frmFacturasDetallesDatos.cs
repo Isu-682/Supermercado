@@ -8,15 +8,25 @@ namespace Supermercado.View
     public partial class frmFacturasDetallesDatos : Form
     {
         int id = -1;
+        int idFactura;
 
         public frmFacturasDetallesDatos()
         {
             InitializeComponent();
         }
 
-        public frmFacturasDetallesDatos(int id)
+        public frmFacturasDetallesDatos(int idFactura)
         {
             InitializeComponent();
+            this.idFactura = idFactura;
+        }
+
+        public frmFacturasDetallesDatos(int id, int idFactura)
+        {
+            InitializeComponent();
+
+            this.id = id;
+            this.idFactura = idFactura;
 
             Datos data = new Datos();
             DataSet ds = data.getAllData("SELECT * FROM \"facturas_detalles\" WHERE id = " + id);
@@ -26,9 +36,9 @@ namespace Supermercado.View
             txtbIva.Text = ds.Tables[0].Rows[0]["iva"].ToString();
             txtbMedio_de_pago.Text = ds.Tables[0].Rows[0]["medio_de_pago"].ToString();
             txtbDescr_pago.Text = ds.Tables[0].Rows[0]["descr_pago"].ToString();
-            this.id = id;
             btnAgregar.Text = "Actualizar";
         }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             bool resultado;
@@ -36,36 +46,49 @@ namespace Supermercado.View
 
             if (id == -1)
             {
-                string queryUpdate = "INSERT INTO public.\"facturas_detalles\" (tipo, descr_factura, " +
-                    "costo_asoc, iva, medio_de_pago, descr_pago) Values " +
-                    "('" + txtbTipo.Text + "','" + txtbDescr_factura.Text + "','" + txtbCosto_asoc.Text + "','" + txtbIva.Text +
-                    "','" + txtbIva.Text + "','" + txtbMedio_de_pago.Text + "','" + txtbDescr_pago.Text + ",)";
-                resultado = datos.ExecuteQuery(queryUpdate);
+                // 🔹 Insert con id_factura incluido
+                string queryInsert = "INSERT INTO public.\"facturas_detalles\" (id_factura, tipo, " +
+                    "descr_factura, costo_asoc, iva, medio_de_pago, descr_pago) VALUES (" +
+                    "'" + idFactura + "'," +
+                    "'" + txtbTipo.Text + "'," +
+                    "'" + txtbDescr_factura.Text + "'," +
+                    "'" + txtbCosto_asoc.Text + "'," +
+                    "'" + txtbIva.Text + "'," +
+                    "'" + txtbMedio_de_pago.Text + "'," +
+                    "'" + txtbDescr_pago.Text + "')";
+
+                resultado = datos.ExecuteQuery(queryInsert);
                 if (resultado)
                 {
-                    MessageBox.Show("Registro insertado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Detalle insertado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Error al insertar al registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al insertar el detalle", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return;
             }
             else
             {
-                string queryup = "UPDATE \"facturas_detalles\" SET tipo = '" + txtbTipo.Text + "', descr_factura = '" + txtbDescr_factura.Text + "', " +
-                    "costo_asoc = '" + txtbCosto_asoc.Text + "', iva = '" + txtbIva.Text + "', medio_de_pago = '" + txtbMedio_de_pago.Text
-                    + "', descr_pago = '" + txtbDescr_pago.Text + "' WHERE id = " + id;
-                resultado = datos.ExecuteQuery(queryup);
+                string queryUpdate = "UPDATE public.\"facturas_detalles\" SET " +
+                    "tipo = '" + txtbTipo.Text + "', " +
+                    "descr_factura = '" + txtbDescr_factura.Text + "', " +
+                    "costo_asoc = '" + txtbCosto_asoc.Text + "', " +
+                    "iva = '" + txtbIva.Text + "', " +
+                    "medio_de_pago = '" + txtbMedio_de_pago.Text + "', " +
+                    "descr_pago = '" + txtbDescr_pago.Text + "' " +
+                    "WHERE id = " + id;
+
+                resultado = datos.ExecuteQuery(queryUpdate);
 
                 if (resultado)
                 {
-                    MessageBox.Show("Registro actualizado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Detalle actualizado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al actualizar el detalle", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

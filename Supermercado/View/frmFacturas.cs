@@ -49,7 +49,7 @@ namespace Supermercado
 
             if (id == -1)
             {
-                string queryUpdate = "INSERT INTO public.\"facturas\" " +
+                string queryInsert = "INSERT INTO public.\"facturas\" " +
                     "(numero, codigo, fecha, hora, importe_total) VALUES (" +
                     "'" + txtbNumero.Text + "'," +
                     "'" + txtbCodigo.Text + "'," +
@@ -57,22 +57,38 @@ namespace Supermercado
                     "'" + dtpHora.Value.ToString("HH:mm:ss") + "'," +
                     "'" + txtbImporte_total.Text + "')";
 
+                resultado = datos.ExecuteQuery(queryInsert);
 
-                resultado = datos.ExecuteQuery(queryUpdate);
                 if (resultado)
                 {
-                    MessageBox.Show("Registro actualizado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // 🔹 Obtener el ID recién insertado
+                    DataSet ds = datos.getAllData("SELECT MAX(id) AS id FROM public.\"facturas\"");
+                    int idFacturaGenerada = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
+
+                    MessageBox.Show("Factura insertada con éxito (ID: " + idFacturaGenerada + ")", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // 🔹 Preguntar si desea agregar detalles
+                    DialogResult respuesta = MessageBox.Show("¿Desea agregar detalles a la factura?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        // 🔹 Abrir formulario de detalles y pasar el ID de la factura
+                        Supermercado.View.frmFacturasDetallesDatos frmDetalles = new Supermercado.View.frmFacturasDetallesDatos(idFacturaGenerada);
+                        frmDetalles.ShowDialog();
+                    }
+
                     limpiar();
+                    mostrarDatos();
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al insertar la factura", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return;
             }
             else
             {
-                string queryup = "UPDATE public.\"facturas\" SET " +
+                string queryUpdate = "UPDATE public.\"facturas\" SET " +
                     "numero = '" + txtbNumero.Text + "', " +
                     "codigo = '" + txtbCodigo.Text + "', " +
                     "fecha = '" + dtpFecha.Value.ToString("yyyy-MM-dd") + "', " +
@@ -80,7 +96,7 @@ namespace Supermercado
                     "importe_total = '" + txtbImporte_total.Text + "' " +
                     "WHERE id = " + id;
 
-                resultado = datos.ExecuteQuery(queryup);
+                resultado = datos.ExecuteQuery(queryUpdate);
 
                 if (resultado)
                 {
