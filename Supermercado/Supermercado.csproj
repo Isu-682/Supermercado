@@ -134,11 +134,17 @@
     <Compile Include="View\frmFacturas.Designer.cs">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\frmFacturasDetalles.cs">
+    <Compile Include="View\frmFacturasDetallesTabla.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\frmFacturasDetalles.Designer.cs">
-      <DependentUpon>frmFacturasDetalles.cs</DependentUpon>
+    <Compile Include="View\frmFacturasDetallesTabla.Designer.cs">
+      <DependentUpon>frmFacturasDetallesTabla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\frmFacturasDetallesDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmFacturasDetallesDatos.Designer.cs">
+      <DependentUpon>frmFacturasDetallesDatos.cs</DependentUpon>
     </Compile>
     <Compile Include="View\frmProductos.cs">
       <SubType>Form</SubType>
@@ -181,8 +187,11 @@
     <EmbeddedResource Include="View\frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\frmFacturasDetalles.resx">
-      <DependentUpon>frmFacturasDetalles.cs</DependentUpon>
+    <EmbeddedResource Include="View\frmFacturasDetallesDatos.resx">
+      <DependentUpon>frmFacturasDetallesDatos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmFacturasDetallesTabla.resx">
+      <DependentUpon>frmFacturasDetallesTabla.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>

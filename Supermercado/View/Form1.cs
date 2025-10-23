@@ -11,7 +11,7 @@ namespace Supermercado
 
         private void btnFacturasDet_Click(object sender, System.EventArgs e)
         {
-            frmFacturasDetalles facturasDetalles = new frmFacturasDetalles();
+            frmFacturasDetallesTabla facturasDetalles = new frmFacturasDetallesTabla();
             facturasDetalles.Show();
             this.Hide();
         }

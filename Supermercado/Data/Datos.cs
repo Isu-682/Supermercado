@@ -73,15 +73,49 @@ namespace Supermercado.Data
             DataSet dataSet = new DataSet();
             try
             {
-                NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command, GetConnection());
-                dataAdapter.Fill(dataSet);
+                var connection = GetConnection();
+                if (connection == null)
+                {
+                    MessageBox.Show("No se pudo establecer conexión con la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+
+                using (connection)
+                {
+                    NpgsqlDataAdapter dataAdapter = new NpgsqlDataAdapter(command, connection);
+                    dataAdapter.Fill(dataSet);
+                }
+
                 return dataSet;
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Console.WriteLine("Error al obtener los datos: " + Ex.Message);
+                MessageBox.Show("Error al obtener los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }
+
+
+        public object ExecuteScalar(string query)
+        {
+            try
+            {
+                using (var conn = GetConnection())
+                {
+                    using (var cmd = new NpgsqlCommand(query, conn))
+                    {
+                        return cmd.ExecuteScalar(); // Retorna un único valor: el ID insertado
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error SQL: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+
+
     }
 }
