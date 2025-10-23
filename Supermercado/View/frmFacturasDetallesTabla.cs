@@ -1,4 +1,5 @@
 ﻿using Supermercado.Data;
+using Supermercado.View;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -23,12 +24,27 @@ namespace Supermercado
 
         private void toolStripEditar_Click(object sender, EventArgs e)
         {
-
+            string r = dgvFacturas_detalles[0, dgvFacturas_detalles.CurrentCell.RowIndex].Value.ToString();
+            frmFacturasDetallesDatos frm = new frmFacturasDetallesDatos(Convert.ToInt32(r));
+            frm.ShowDialog();
         }
 
         private void toolStripEliminar_Click(object sender, EventArgs e)
         {
-
+            string r = dgvFacturas_detalles[0, dgvFacturas_detalles.CurrentCell.RowIndex].Value.ToString();
+            if (MessageBox.Show("¿Está seguro de eliminar el registro?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                bool resultado = datos.ExecuteQuery("DELETE FROM \"facturas_detalles\" WHERE id = " + r);
+                if (resultado)
+                {
+                    MessageBox.Show("Registro eliminado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mostrarDatos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void mostrarDatos()

@@ -35,11 +35,9 @@
             this.txtbIva = new System.Windows.Forms.TextBox();
             this.txtbCosto_asoc = new System.Windows.Forms.TextBox();
             this.txtbDescr_factura = new System.Windows.Forms.TextBox();
-            this.txtbCodigo = new System.Windows.Forms.TextBox();
             this.txtbTipo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -47,14 +45,14 @@
             // 
             // txtbDescr_pago
             // 
-            this.txtbDescr_pago.Location = new System.Drawing.Point(31, 306);
+            this.txtbDescr_pago.Location = new System.Drawing.Point(31, 258);
             this.txtbDescr_pago.Name = "txtbDescr_pago";
             this.txtbDescr_pago.Size = new System.Drawing.Size(241, 20);
             this.txtbDescr_pago.TabIndex = 55;
             // 
             // txtbMedio_de_pago
             // 
-            this.txtbMedio_de_pago.Location = new System.Drawing.Point(31, 261);
+            this.txtbMedio_de_pago.Location = new System.Drawing.Point(31, 213);
             this.txtbMedio_de_pago.Name = "txtbMedio_de_pago";
             this.txtbMedio_de_pago.Size = new System.Drawing.Size(241, 20);
             this.txtbMedio_de_pago.TabIndex = 54;
@@ -62,7 +60,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 242);
+            this.label1.Location = new System.Drawing.Point(28, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 53;
@@ -71,7 +69,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 287);
+            this.label7.Location = new System.Drawing.Point(28, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(108, 13);
             this.label7.TabIndex = 52;
@@ -79,31 +77,24 @@
             // 
             // txtbIva
             // 
-            this.txtbIva.Location = new System.Drawing.Point(31, 216);
+            this.txtbIva.Location = new System.Drawing.Point(31, 168);
             this.txtbIva.Name = "txtbIva";
             this.txtbIva.Size = new System.Drawing.Size(241, 20);
             this.txtbIva.TabIndex = 51;
             // 
             // txtbCosto_asoc
             // 
-            this.txtbCosto_asoc.Location = new System.Drawing.Point(31, 171);
+            this.txtbCosto_asoc.Location = new System.Drawing.Point(31, 123);
             this.txtbCosto_asoc.Name = "txtbCosto_asoc";
             this.txtbCosto_asoc.Size = new System.Drawing.Size(241, 20);
             this.txtbCosto_asoc.TabIndex = 50;
             // 
             // txtbDescr_factura
             // 
-            this.txtbDescr_factura.Location = new System.Drawing.Point(31, 126);
+            this.txtbDescr_factura.Location = new System.Drawing.Point(31, 78);
             this.txtbDescr_factura.Name = "txtbDescr_factura";
             this.txtbDescr_factura.Size = new System.Drawing.Size(241, 20);
             this.txtbDescr_factura.TabIndex = 49;
-            // 
-            // txtbCodigo
-            // 
-            this.txtbCodigo.Location = new System.Drawing.Point(31, 81);
-            this.txtbCodigo.Name = "txtbCodigo";
-            this.txtbCodigo.Size = new System.Drawing.Size(241, 20);
-            this.txtbCodigo.TabIndex = 48;
             // 
             // txtbTipo
             // 
@@ -115,7 +106,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 152);
+            this.label5.Location = new System.Drawing.Point(28, 104);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 46;
@@ -124,25 +115,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 197);
+            this.label6.Location = new System.Drawing.Point(28, 149);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(24, 13);
             this.label6.TabIndex = 45;
             this.label6.Text = "IVA";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Codigo";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 107);
+            this.label4.Location = new System.Drawing.Point(28, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 13);
             this.label4.TabIndex = 43;
@@ -159,18 +141,19 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(114, 344);
+            this.btnAgregar.Location = new System.Drawing.Point(114, 296);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 56;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // frmFacturasDetallesDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 390);
+            this.ClientSize = new System.Drawing.Size(315, 348);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtbDescr_pago);
             this.Controls.Add(this.txtbMedio_de_pago);
@@ -179,11 +162,9 @@
             this.Controls.Add(this.txtbIva);
             this.Controls.Add(this.txtbCosto_asoc);
             this.Controls.Add(this.txtbDescr_factura);
-            this.Controls.Add(this.txtbCodigo);
             this.Controls.Add(this.txtbTipo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Name = "frmFacturasDetallesDatos";
@@ -202,11 +183,9 @@
         private System.Windows.Forms.TextBox txtbIva;
         private System.Windows.Forms.TextBox txtbCosto_asoc;
         private System.Windows.Forms.TextBox txtbDescr_factura;
-        private System.Windows.Forms.TextBox txtbCodigo;
         private System.Windows.Forms.TextBox txtbTipo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAgregar;
