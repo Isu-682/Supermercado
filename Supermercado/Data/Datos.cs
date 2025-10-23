@@ -95,26 +95,32 @@ namespace Supermercado.Data
             }
         }
 
-
-        public object ExecuteScalar(string query)
+        public int ExecuteInsertAndReturnId(string query)
         {
+            int id = -1;
             try
             {
-                using (var conn = GetConnection())
+                using (NpgsqlConnection conn = GetConnection())
                 {
-                    using (var cmd = new NpgsqlCommand(query, conn))
+                    if (conn == null)
+                        return -1;
+
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
-                        return cmd.ExecuteScalar(); // Retorna un único valor: el ID insertado
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && int.TryParse(result.ToString(), out int generatedId))
+                        {
+                            id = generatedId;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error SQL: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
+                MessageBox.Show("Error SQL al insertar y obtener ID: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            return id;
         }
-
 
 
     }

@@ -30,11 +30,11 @@ namespace Supermercado.View
 
             Datos data = new Datos();
             DataSet ds = data.getAllData("SELECT * FROM \"facturas_detalles\" WHERE id = " + id);
-            txtbTipo.Text = ds.Tables[0].Rows[0]["tipo"].ToString();
+            cbTipo.Text = ds.Tables[0].Rows[0]["tipo"].ToString();
             txtbDescr_factura.Text = ds.Tables[0].Rows[0]["descr_factura"].ToString();
             txtbCosto_asoc.Text = ds.Tables[0].Rows[0]["costo_asoc"].ToString();
             txtbIva.Text = ds.Tables[0].Rows[0]["iva"].ToString();
-            txtbMedio_de_pago.Text = ds.Tables[0].Rows[0]["medio_de_pago"].ToString();
+            cbMedio_de_pago.Text = ds.Tables[0].Rows[0]["medio_de_pago"].ToString();
             txtbDescr_pago.Text = ds.Tables[0].Rows[0]["descr_pago"].ToString();
             btnAgregar.Text = "Actualizar";
         }
@@ -50,17 +50,18 @@ namespace Supermercado.View
                 string queryInsert = "INSERT INTO public.\"facturas_detalles\" (id_factura, tipo, " +
                     "descr_factura, costo_asoc, iva, medio_de_pago, descr_pago) VALUES (" +
                     "'" + idFactura + "'," +
-                    "'" + txtbTipo.Text + "'," +
+                    "'" + cbTipo.Text + "'," +
                     "'" + txtbDescr_factura.Text + "'," +
                     "'" + txtbCosto_asoc.Text + "'," +
                     "'" + txtbIva.Text + "'," +
-                    "'" + txtbMedio_de_pago.Text + "'," +
+                    "'" + cbMedio_de_pago.Text + "'," +
                     "'" + txtbDescr_pago.Text + "')";
 
                 resultado = datos.ExecuteQuery(queryInsert);
                 if (resultado)
                 {
                     MessageBox.Show("Detalle insertado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
                     this.Close();
                 }
                 else
@@ -72,11 +73,11 @@ namespace Supermercado.View
             else
             {
                 string queryUpdate = "UPDATE public.\"facturas_detalles\" SET " +
-                    "tipo = '" + txtbTipo.Text + "', " +
+                    "tipo = '" + cbTipo.Text + "', " +
                     "descr_factura = '" + txtbDescr_factura.Text + "', " +
                     "costo_asoc = '" + txtbCosto_asoc.Text + "', " +
                     "iva = '" + txtbIva.Text + "', " +
-                    "medio_de_pago = '" + txtbMedio_de_pago.Text + "', " +
+                    "medio_de_pago = '" + cbMedio_de_pago.Text + "', " +
                     "descr_pago = '" + txtbDescr_pago.Text + "' " +
                     "WHERE id = " + id;
 
@@ -85,12 +86,24 @@ namespace Supermercado.View
                 if (resultado)
                 {
                     MessageBox.Show("Detalle actualizado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Error al actualizar el detalle", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void limpiar()
+        {
+            cbTipo.Text = "";
+            txtbDescr_factura.Text = "";
+            txtbCosto_asoc.Text = "";
+            txtbIva.Text = "";
+            cbMedio_de_pago.Text = "";
+            txtbDescr_pago.Text = "";
         }
     }
 }

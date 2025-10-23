@@ -1,4 +1,5 @@
 ﻿using Supermercado.Data;
+using Supermercado.View;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -49,35 +50,34 @@ namespace Supermercado
 
             if (id == -1)
             {
-                string queryInsert = "INSERT INTO public.\"facturas\" " +
-                    "(numero, codigo, fecha, hora, importe_total) VALUES (" +
-                    "'" + txtbNumero.Text + "'," +
-                    "'" + txtbCodigo.Text + "'," +
-                    "'" + dtpFecha.Value.ToString("yyyy-MM-dd") + "'," +
-                    "'" + dtpHora.Value.ToString("HH:mm:ss") + "'," +
-                    "'" + txtbImporte_total.Text + "')";
+                string queryInsert = "INSERT INTO public.\"facturas\" (numero, codigo, fecha, hora, importe_total) " +
+                                     "VALUES ('" + txtbNumero.Text + "', '" + txtbCodigo.Text + "', '" +
+                                     dtpFecha.Value.ToString("yyyy-MM-dd") + "', '" + dtpHora.Value.ToString("HH:mm:ss") + "', '" +
+                                     txtbImporte_total.Text + "') RETURNING id;";
 
-                resultado = datos.ExecuteQuery(queryInsert);
+                int nuevoIdFactura = datos.ExecuteInsertAndReturnId(queryInsert);
 
-                if (resultado)
+                if (nuevoIdFactura > 0)
                 {
-                    // 🔹 Obtener el ID recién insertado
-                    DataSet ds = datos.getAllData("SELECT MAX(id) AS id FROM public.\"facturas\"");
-                    int idFacturaGenerada = Convert.ToInt32(ds.Tables[0].Rows[0]["id"]);
+                    MessageBox.Show("Factura insertada con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MessageBox.Show("Factura insertada con éxito (ID: " + idFacturaGenerada + ")", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // 🔹 Preguntar si desea agregar detalles
-                    DialogResult respuesta = MessageBox.Show("¿Desea agregar detalles a la factura?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // Preguntar si desea agregar detalles
+                    DialogResult respuesta = MessageBox.Show(
+                        "¿Desea agregar más detalles a la factura?",
+                        "Agregar detalles",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)
                     {
-                        // 🔹 Abrir formulario de detalles y pasar el ID de la factura
-                        Supermercado.View.frmFacturasDetallesDatos frmDetalles = new Supermercado.View.frmFacturasDetallesDatos(idFacturaGenerada);
-                        frmDetalles.ShowDialog();
+                        frmFacturasDetallesDatos detallesForm = new frmFacturasDetallesDatos(nuevoIdFactura);
+                        detallesForm.ShowDialog();
+                    }
+                    else
+                    {
+                        limpiar();
                     }
 
-                    limpiar();
                     mostrarDatos();
                 }
                 else
@@ -86,6 +86,7 @@ namespace Supermercado
                 }
                 return;
             }
+
             else
             {
                 string queryUpdate = "UPDATE public.\"facturas\" SET " +
@@ -101,6 +102,7 @@ namespace Supermercado
                 if (resultado)
                 {
                     MessageBox.Show("Registro actualizado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
                 }
                 else
                 {
@@ -162,7 +164,7 @@ namespace Supermercado
             }
             else
             {
-                MessageBox.Show("No se pudo cargar la factura.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo cargar la factura", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

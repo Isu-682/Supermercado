@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.txtbDescr_pago = new System.Windows.Forms.TextBox();
-            this.txtbMedio_de_pago = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtbIva = new System.Windows.Forms.TextBox();
             this.txtbCosto_asoc = new System.Windows.Forms.TextBox();
             this.txtbDescr_factura = new System.Windows.Forms.TextBox();
-            this.txtbTipo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.cbMedio_de_pago = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtbDescr_pago
@@ -49,13 +49,6 @@
             this.txtbDescr_pago.Name = "txtbDescr_pago";
             this.txtbDescr_pago.Size = new System.Drawing.Size(241, 20);
             this.txtbDescr_pago.TabIndex = 55;
-            // 
-            // txtbMedio_de_pago
-            // 
-            this.txtbMedio_de_pago.Location = new System.Drawing.Point(31, 213);
-            this.txtbMedio_de_pago.Name = "txtbMedio_de_pago";
-            this.txtbMedio_de_pago.Size = new System.Drawing.Size(241, 20);
-            this.txtbMedio_de_pago.TabIndex = 54;
             // 
             // label1
             // 
@@ -95,13 +88,6 @@
             this.txtbDescr_factura.Name = "txtbDescr_factura";
             this.txtbDescr_factura.Size = new System.Drawing.Size(241, 20);
             this.txtbDescr_factura.TabIndex = 49;
-            // 
-            // txtbTipo
-            // 
-            this.txtbTipo.Location = new System.Drawing.Point(31, 36);
-            this.txtbTipo.Name = "txtbTipo";
-            this.txtbTipo.Size = new System.Drawing.Size(241, 20);
-            this.txtbTipo.TabIndex = 47;
             // 
             // label5
             // 
@@ -149,20 +135,48 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // cbTipo
+            // 
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.cbTipo.Location = new System.Drawing.Point(31, 33);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(241, 21);
+            this.cbTipo.TabIndex = 57;
+            // 
+            // cbMedio_de_pago
+            // 
+            this.cbMedio_de_pago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMedio_de_pago.FormattingEnabled = true;
+            this.cbMedio_de_pago.Items.AddRange(new object[] {
+            "EFECTIVO",
+            "CHEQUE",
+            "TARJETA CREDITO",
+            "TARJETA DEBITO"});
+            this.cbMedio_de_pago.Location = new System.Drawing.Point(31, 210);
+            this.cbMedio_de_pago.Name = "cbMedio_de_pago";
+            this.cbMedio_de_pago.Size = new System.Drawing.Size(241, 21);
+            this.cbMedio_de_pago.TabIndex = 58;
+            // 
             // frmFacturasDetallesDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(315, 348);
+            this.Controls.Add(this.cbMedio_de_pago);
+            this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtbDescr_pago);
-            this.Controls.Add(this.txtbMedio_de_pago);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtbIva);
             this.Controls.Add(this.txtbCosto_asoc);
             this.Controls.Add(this.txtbDescr_factura);
-            this.Controls.Add(this.txtbTipo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -177,17 +191,17 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtbDescr_pago;
-        private System.Windows.Forms.TextBox txtbMedio_de_pago;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtbIva;
         private System.Windows.Forms.TextBox txtbCosto_asoc;
         private System.Windows.Forms.TextBox txtbDescr_factura;
-        private System.Windows.Forms.TextBox txtbTipo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.ComboBox cbMedio_de_pago;
     }
 }
