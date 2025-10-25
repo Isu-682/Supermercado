@@ -46,7 +46,6 @@ namespace Supermercado.View
 
             if (id == -1)
             {
-                // 🔹 Insert con id_factura incluido
                 string queryInsert = "INSERT INTO public.\"facturas_detalles\" (id_factura, tipo, " +
                     "descr_factura, costo_asoc, iva, medio_de_pago, descr_pago) VALUES (" +
                     "'" + idFactura + "'," +

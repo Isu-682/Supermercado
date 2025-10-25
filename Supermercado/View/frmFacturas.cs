@@ -46,7 +46,6 @@ namespace Supermercado
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             bool resultado;
-            Datos datos = new Datos();
 
             if (id == -1)
             {
@@ -61,12 +60,14 @@ namespace Supermercado
                 {
                     MessageBox.Show("Factura insertada con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Preguntar si desea agregar detalles
-                    DialogResult respuesta = MessageBox.Show(
-                        "¿Desea agregar más detalles a la factura?",
-                        "Agregar detalles",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question);
+                    DataSet dsEmpleados = datos.getAllData("SELECT MAX(id) as id FROM public.\"empleados\"");
+                    int idEmpleadoActual = Convert.ToInt32(dsEmpleados.Tables[0].Rows[0]["id"]);
+
+                    string queryVenta = "INSERT INTO public.\"ventas\" (id_empleado, id_factura) " +
+                                        "VALUES (" + idEmpleadoActual + ", " + nuevoIdFactura + ")";
+                    datos.ExecuteQuery(queryVenta);
+
+                    DialogResult respuesta = MessageBox.Show("¿Desea agregar más detalles a la factura?", "Agregar detalles", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)
                     {
@@ -86,7 +87,6 @@ namespace Supermercado
                 }
                 return;
             }
-
             else
             {
                 string queryUpdate = "UPDATE public.\"facturas\" SET " +
