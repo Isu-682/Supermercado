@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvCompras_Clientes = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras_Clientes)).BeginInit();
+            this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCompras_Clientes
@@ -51,6 +55,20 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarToolStripMenuItem});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(181, 48);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
             // frmComprasClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -60,7 +78,9 @@
             this.Controls.Add(this.dgvCompras_Clientes);
             this.Name = "frmComprasClientes";
             this.Text = "Compras Clientes";
+            this.Load += new System.EventHandler(this.frmComprasClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompras_Clientes)).EndInit();
+            this.cmsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -69,5 +89,7 @@
 
         private System.Windows.Forms.DataGridView dgvCompras_Clientes;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ContextMenuStrip cmsMenu;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }

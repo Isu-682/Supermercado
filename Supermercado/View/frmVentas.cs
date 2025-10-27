@@ -35,8 +35,8 @@ namespace Supermercado
         {
             DataSet ds = datos.getAllData(
                 "SELECT id as \"Id\", " +
-                "id_factura as \"Id Factura\", " +
-                "id_empleado as \"Id Empleado\" " +
+                "id_empleado as \"Id Empleado\", " +
+                "id_factura as \"Id Factura\" " +
                 "FROM \"ventas\" order by id");
 
             if (ds != null)
