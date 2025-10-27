@@ -122,6 +122,27 @@ namespace Supermercado.Data
             return id;
         }
 
+        public String GetValue(string query)
+        {
+            try
+            {
+                NpgsqlCommand com = new NpgsqlCommand(query, GetConnection());
+                object result = com.ExecuteScalar();
+                if (result != null)
+                {
+                    return result.ToString();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el valor: " + ex.Message);
+                return null;
+            }
+        }
 
     }
 }

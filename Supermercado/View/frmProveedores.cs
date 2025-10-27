@@ -51,20 +51,21 @@ namespace Supermercado
 
             if (id == -1)
             {
-                string queryUpdate = "INSERT INTO public.\"proveedores\" " +
+                string queryInsert = "INSERT INTO public.\"proveedores\" " +
                     "(empresa, tipo_producto, direccion, nro_tel_princ, nro_tel_sec, email) VALUES (" +
                     "'" + txtbEmpresa.Text + "'," +
                     "'" + txtbTipo_producto.Text + "'," +
                     "'" + txtbDireccion.Text + "'," +
                     "'" + mtxtbNro_tel_princ.Text + "'," +
                     "'" + mtxtbNro_tel_sec.Text + "'," +
-                    "'" + txtbEmail.Text + "')";
+                    "'" + txtbEmail.Text + "') RETURNING id;";
 
+                int nuevoIdProveedor = datos.ExecuteInsertAndReturnId(queryInsert);
 
-                resultado = datos.ExecuteQuery(queryUpdate);
-                if (resultado)
+                if (nuevoIdProveedor > 0)
                 {
-                    MessageBox.Show("Registro agregado con éxito", "Siste", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Proveedor insertado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
 
                 }
@@ -107,6 +108,8 @@ namespace Supermercado
             mtxtbNro_tel_princ.Text = "";
             mtxtbNro_tel_sec.Text = "";
             txtbEmail.Text = "";
+            id = -1;
+            btnAgregar.Text = "Agregar";
         }
 
         private void mostrarDatos()

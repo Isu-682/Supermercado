@@ -118,6 +118,8 @@ namespace Supermercado
             dtpFecha.Text = "";
             dtpHora.Text = "";
             txtbImporte_total.Text = "";
+            id = -1;
+            btnAgregar.Text = "Agregar";
         }
 
         private void mostrarDatos()

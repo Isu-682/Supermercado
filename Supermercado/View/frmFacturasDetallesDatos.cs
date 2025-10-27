@@ -103,6 +103,8 @@ namespace Supermercado.View
             txtbIva.Text = "";
             cbMedio_de_pago.Text = "";
             txtbDescr_pago.Text = "";
+            id = -1;
+            btnAgregar.Text = "Agregar";
         }
     }
 }

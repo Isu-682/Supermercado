@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtbCantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvVentas_productos = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripEliminar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas_productos)).BeginInit();
+            this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtbCantidad
@@ -54,6 +59,7 @@
             // dgvVentas_productos
             // 
             this.dgvVentas_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentas_productos.ContextMenuStrip = this.cmsMenu;
             this.dgvVentas_productos.Location = new System.Drawing.Point(50, 66);
             this.dgvVentas_productos.Name = "dgvVentas_productos";
             this.dgvVentas_productos.Size = new System.Drawing.Size(702, 248);
@@ -69,6 +75,26 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripEditar,
+            this.toolStripEliminar});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(118, 48);
+            // 
+            // toolStripEditar
+            // 
+            this.toolStripEditar.Name = "toolStripEditar";
+            this.toolStripEditar.Size = new System.Drawing.Size(117, 22);
+            this.toolStripEditar.Text = "Editar";
+            // 
+            // toolStripEliminar
+            // 
+            this.toolStripEliminar.Name = "toolStripEliminar";
+            this.toolStripEliminar.Size = new System.Drawing.Size(117, 22);
+            this.toolStripEliminar.Text = "Eliminar";
+            // 
             // frmVentasProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -81,6 +107,7 @@
             this.Name = "frmVentasProductos";
             this.Text = "Ventas Productos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas_productos)).EndInit();
+            this.cmsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,5 +119,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvVentas_productos;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.ContextMenuStrip cmsMenu;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEditar;
+        private System.Windows.Forms.ToolStripMenuItem toolStripEliminar;
     }
 }

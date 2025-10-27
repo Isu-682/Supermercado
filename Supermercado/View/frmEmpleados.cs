@@ -119,6 +119,8 @@ namespace Supermercado
             txtbAntiguedad.Text = "";
             dtpFecha_ingreso.Text = "";
             txtbSalario_anual.Text = "";
+            id = -1;
+            btnAgregar.Text = "Agregar";
         }
 
         private void mostrarDatos()

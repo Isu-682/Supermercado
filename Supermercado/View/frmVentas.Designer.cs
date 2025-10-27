@@ -30,21 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.cmsMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.cmsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVentas
             // 
+            this.dgvVentas.AllowUserToAddRows = false;
+            this.dgvVentas.AllowUserToDeleteRows = false;
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.ContextMenuStrip = this.cmsMenu;
             this.dgvVentas.Location = new System.Drawing.Point(46, 40);
             this.dgvVentas.Name = "dgvVentas";
+            this.dgvVentas.ReadOnly = true;
             this.dgvVentas.Size = new System.Drawing.Size(702, 248);
             this.dgvVentas.TabIndex = 10;
+            // 
+            // cmsMenu
+            // 
+            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripEliminar});
+            this.cmsMenu.Name = "cmsMenu";
+            this.cmsMenu.Size = new System.Drawing.Size(118, 26);
+            // 
+            // toolStripEliminar
+            // 
+            this.toolStripEliminar.Name = "toolStripEliminar";
+            this.toolStripEliminar.Size = new System.Drawing.Size(117, 22);
+            this.toolStripEliminar.Text = "Eliminar";
+            this.toolStripEliminar.Click += new System.EventHandler(this.toolStripEliminar_Click);
             // 
             // btnCerrar
             // 
@@ -55,20 +72,6 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // cmsMenu
-            // 
-            this.cmsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripEliminar});
-            this.cmsMenu.Name = "cmsMenu";
-            this.cmsMenu.Size = new System.Drawing.Size(181, 48);
-            // 
-            // toolStripEliminar
-            // 
-            this.toolStripEliminar.Name = "toolStripEliminar";
-            this.toolStripEliminar.Size = new System.Drawing.Size(180, 22);
-            this.toolStripEliminar.Text = "Eliminar";
-            this.toolStripEliminar.Click += new System.EventHandler(this.toolStripEliminar_Click);
             // 
             // frmVentas
             // 

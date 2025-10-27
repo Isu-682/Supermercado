@@ -135,6 +135,8 @@ namespace Supermercado
             mtxtbNro_tel_princ.Text = "";
             mtxtbNro_tel_sec.Text = "";
             txtbEmail.Text = "";
+            id = -1;
+            btnAgregar.Text = "Agregar";
         }
 
         private void toolStripEditar_Click(object sender, EventArgs e)
@@ -182,6 +184,5 @@ namespace Supermercado
                 MessageBox.Show("No se pudo cargar el cliente.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }
