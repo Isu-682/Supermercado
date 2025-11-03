@@ -67,6 +67,16 @@ namespace Supermercado
                                         "VALUES (" + idEmpleadoActual + ", " + nuevoIdFactura + ")";
                     datos.ExecuteQuery(queryVenta);
 
+                    DataSet dsVenta = datos.getAllData("SELECT MAX(id) as id FROM public.\"ventas\"");
+                    int idVentaActual = Convert.ToInt32(dsVenta.Tables[0].Rows[0]["id"]);
+
+                    DataSet dsCliente = datos.getAllData("SELECT MAX(id) as id FROM public.\"clientes\"");
+                    int idClienteActual = Convert.ToInt32(dsCliente.Tables[0].Rows[0]["id"]);
+
+                    string queryCompraCliente = "INSERT INTO public.\"compras_clientes\" (id_venta, id_cliente) " +
+                                                "VALUES (" + idVentaActual + ", " + idClienteActual + ")";
+                    datos.ExecuteQuery(queryCompraCliente);
+
                     DialogResult respuesta = MessageBox.Show("¿Desea agregar más detalles a la factura?", "Agregar detalles", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (respuesta == DialogResult.Yes)

@@ -30,10 +30,11 @@ namespace Supermercado
         private void mostrarDatos()
         {
             DataSet ds = datos.getAllData(
-                "SELECT id as \"Id\", " +
-                "id_venta as \"Id Venta\", " +
-                "id_producto as \"Id Producto\" " +
-                "FROM \"compras_clientes\" order by id");
+                "SELECT cc.id AS \"Id\", " +
+                "cc.id_venta AS \"Id Venta\", " +
+                "cc.id_cliente AS \"Id Cliente\" " +
+                "FROM public.\"compras_clientes\" cc " +
+                "ORDER BY cc.id");
 
             if (ds != null)
             {
@@ -41,27 +42,36 @@ namespace Supermercado
             }
             else
             {
-                MessageBox.Show("No se pudieron obtener los datos de la base de datos.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudieron obtener los datos de la base de datos.",
+                                "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string r = dgvCompras_Clientes[0, dgvCompras_Clientes.CurrentCell.RowIndex].Value.ToString();
-            DialogResult dr = MessageBox.Show("¿Está seguro de eliminar la venta seleccionada?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dgvCompras_Clientes.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un registro para eliminar.", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string id = dgvCompras_Clientes[0, dgvCompras_Clientes.CurrentCell.RowIndex].Value.ToString();
+
+            DialogResult dr = MessageBox.Show("¿Está seguro de eliminar el registro seleccionado?",
+                                              "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dr == DialogResult.Yes)
             {
-                bool resultado = datos.ExecuteQuery("DELETE FROM public.\"compras_clientes\" WHERE id = " + r);
+                bool resultado = datos.ExecuteQuery("DELETE FROM public.\"compras_clientes\" WHERE id = " + id);
 
                 if (resultado)
                 {
-                    MessageBox.Show("Venta eliminada con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro eliminado con éxito", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     mostrarDatos();
                 }
                 else
                 {
-                    MessageBox.Show("Error al eliminar la venta", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al eliminar el registro", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
